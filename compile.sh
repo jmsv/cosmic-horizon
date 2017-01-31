@@ -1,1 +1,1 @@
-g++ src/game.cpp -o bin/game.o
+g++ src/game.cpp -l sqlite3 -o bin/game.o

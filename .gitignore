@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+
+# test database
+test.db
