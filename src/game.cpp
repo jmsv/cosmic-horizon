@@ -1,6 +1,9 @@
 #include <iostream>
 #include <stdio.h>
 #include <sqlite3.h>
+#include <string>
+using namespace std;
+
 
 int database_test()
 {
@@ -21,8 +24,54 @@ int database_test()
   return 0;
 }
 
+
+bool valid_name(string test_name)
+{
+  return true;
+}
+
+
+string get_name()
+{
+  string nameIn = "";
+  cin >> nameIn;
+  if(valid_name(nameIn) == true){
+    return nameIn;
+  }else{
+    return "";
+  }
+}
+
+
+void print(string text, string textColour="", bool newLine=true)
+{
+  if(textColour == ""){
+    printf("%c[1;0m", 27);
+  }else if(textColour == "red"){
+    printf("%c[1;31m", 27);
+  }else if(textColour == "blue"){
+    printf("%c[1;34m", 27);
+  }
+  
+  if(newLine){
+    text += "\n";
+  }
+  printf(text.c_str(), 27);
+  
+  printf("%c[1;0m", 27);
+}
+
+
 int main()
 {
-  database_test();
-  std::cout << "Hello World!\n";
+  print("Name: ", "", false);
+  string name = "";
+  name = get_name();
+  std::cout << "Hello, " << name << "!\n";
+  
+  print("Red test", "red");
+  print("Blue test", "blue");
+  print("Reset test");
+  
+  return 0;
 }
