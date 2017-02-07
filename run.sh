@@ -9,5 +9,8 @@ fi
 
 echo "Running..."
 echo "--------------------------------------------------"
+echo ""
 
 ./bin/cosmic-horizon.o
+
+exit $? # Exit with code returned by executable

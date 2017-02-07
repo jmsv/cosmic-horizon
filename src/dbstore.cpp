@@ -8,7 +8,7 @@ int database_test()
   char *zErrMsg = 0;
   int rc;
 
-  rc = sqlite3_open("test.db", &db);
+  rc = sqlite3_open("database/test.db", &db);
 
   if(rc){
     return(0);
