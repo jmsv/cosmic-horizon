@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Running this (./compile.sh) uses the below command to compile to bin/game.o
+# Running this (./compile.sh) uses the below g++ command to compile to bin/game.o
 
 echo "Running compile command..."
 
