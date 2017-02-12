@@ -4,7 +4,7 @@
 
 echo "Running compile command..."
 
-g++ src/userin.cpp src/dbstore.cpp src/print.cpp src/game.cpp -l sqlite3 -o bin/cosmic-horizon.o
+g++ -std=c++11 src/userin.cpp src/dbstore.cpp src/print.cpp src/game.cpp -l sqlite3 -o bin/cosmic-horizon.o
 rc=$?; if ! [[ $rc != 0 ]];
 then
     echo "...Compiled to bin/cosmic-horizon.o"
