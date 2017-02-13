@@ -10,9 +10,21 @@ bool valid_name(string test_name)
 }
 
 
-bool yes_no()
+string get_name()
 {
-    cout << "Yes or no?";
+  string nameIn = "";
+  cin >> nameIn;
+  if (valid_name(nameIn) == true)
+  {
+    return nameIn;
+  } else {
+    return "";
+  }
+}
+
+bool yes_or_no()
+{
+    cout << "Yes or no? : ";
     string answer = "";
     bool valid_in = false;
     while(!valid_in)
@@ -33,17 +45,4 @@ bool yes_no()
             cout << "Invalid input! Try again";
         }
     }
-}
-
-
-string get_name()
-{
-  string nameIn = "";
-  cin >> nameIn;
-  if (valid_name(nameIn) == true)
-  {
-    return nameIn;
-  } else {
-    return "";
-  }
 }

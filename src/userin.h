@@ -3,3 +3,4 @@ using namespace std;
 
 bool valid_name(string test_name);
 string get_name();
+bool yes_or_no();
