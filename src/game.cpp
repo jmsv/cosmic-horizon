@@ -21,39 +21,39 @@ int stay()
 int main()
 {
   
-  database_test();
+database_test();
   
-  print("Name: ", "", false);
-  string name = "";
-  name = get_name();
-  std::cout << "Hello, " << name << "!\n";
+print("Name: ", "", false);
+string name = "";
+name = get_name();
+std::cout << "Hello, " << name << "!\n";
   
-  print("Do you want to play Cosmic Horizon ");
-  print("Yes");
-  print("No");
+print("Do you want to play Cosmic Horizon ");
+print("Yes");
+print("No");
     
-  bool choice;
-  choice = yes_or_no();
-  if (choice)
-  {
-      print("Let's begin");
-  }
-  else
-  {
-      print("Answered no");
-  }
+bool choice;
+choice = yes_or_no();
+if (choice)
+{
+    print("Let's begin");
+}
+else
+{
+    print("Answered no");
+}
   
-  print("You wake up and find out you are stranded on a foreign planet after you crashed your spaceship. What do you do");
-  print("1) Kill yourself");
-  print("2) Get up and explore");
-  print("3) Stay in the wrecked ship and wait for help");
+print("You wake up and find out you are stranded on a foreign planet after you crashed your spaceship. What do you do");
+print("1) Kill yourself");
+print("2) Get up and explore");
+print("3) Stay in the wrecked ship and wait for help");
    
-    int answer;
-    std::cin >> answer;
-    if (answer == 1)
-    {
-        kill_yourself();
-    }
+int answer;
+std::cin >> answer;
+if (answer == 1)
+{
+     kill_yourself();
+}
     if (answer == 2)
     {
         explore();
@@ -62,5 +62,5 @@ int main()
     {
         stay();
     }
-  return 0;
+return 0;
 }
