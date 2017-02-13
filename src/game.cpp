@@ -54,13 +54,13 @@ if (answer == 1)
 {
      kill_yourself();
 }
-    if (answer == 2)
-    {
-        explore();
-    }
-    if (answer == 3)
-    {
-        stay();
-    }
+if (answer == 2)
+{
+    explore();
+}
+if (answer == 3)
+{
+    stay();
+}
 return 0;
 }
