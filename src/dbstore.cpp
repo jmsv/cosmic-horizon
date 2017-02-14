@@ -4,18 +4,18 @@ using namespace std;
 
 int database_test()
 {
-  sqlite3 *db;
-  char *zErrMsg = 0;
-  int rc;
+    sqlite3* db;
+    char* zErrMsg = 0;
+    int rc;
 
-  rc = sqlite3_open("database/test.db", &db);
+    rc = sqlite3_open("database/test.db", &db);
 
-  if(rc){
-    return(0);
-  }else{
-    return 1;
-  }
-  sqlite3_close(db);
-  
-  return 0;
+    if (rc) {
+        return (0);
+    } else {
+        return 1;
+    }
+    sqlite3_close(db);
+
+    return 0;
 }
