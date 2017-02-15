@@ -1,4 +1,5 @@
 #include "dbstore.h"
+#include "misc.h"
 #include "print.h"
 #include "story.h"
 #include "userin.h"
@@ -17,6 +18,7 @@ int main()
     std::cout << "Hello, " << name << "!\n";
     */
 
+    /*
     print("red test", "red");
     print("blue test", "blue");
     print("green test", "green");
@@ -24,6 +26,9 @@ int main()
     print("magenta test", "magenta");
     print("cyan test", "cyan");
     print();
+    */
+
+    print(get_ascii_title());
 
     // Database load/create needs to be implemented
 

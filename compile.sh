@@ -10,7 +10,7 @@ echo "Making the code all nice and pretty..."
 echo "Running compile command..."
 
 # Compile
-g++ -std=c++11 src/userin.cpp src/dbstore.cpp src/story.cpp src/print.cpp src/game.cpp -l sqlite3 -o bin/cosmic-horizon.o
+g++ -std=c++11 src/userin.cpp src/dbstore.cpp src/story.cpp src/print.cpp src/misc.cpp src/game.cpp -l sqlite3 -o bin/cosmic-horizon.o
 
 # Check return value to see whether or not it all crashed and burned
 rc=$?; if ! [[ $rc != 0 ]];
