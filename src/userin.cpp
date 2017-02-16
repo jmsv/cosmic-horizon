@@ -20,12 +20,12 @@ bool valid_name(string test_name)
     return true;
 }
 
-string get_name()
+string get_text()
 {
-    string nameIn = "";
-    cin >> nameIn;
-    if (valid_name(nameIn) == true) {
-        return nameIn;
+    string textIn = "";
+    cin >> textIn;
+    if (valid_name(textIn) == true) {
+        return textIn;
     } else {
         return "";
     }
