@@ -28,7 +28,7 @@ int main()
     print();
     */
 
-    print(get_ascii_title());
+    print("\n" + get_ascii_title(), "yellow");
 
     // Database load/create needs to be implemented
 
