@@ -41,6 +41,8 @@ void scavenge_for_supplies()
 
 void shout_for_help()
 {
+    print("\nYou yell for help, but there is  no responce", "green");
+
     print("\nYou find some leftover food and repairing tool kit.\n", "green");
     print("Do you:");
     print("1) Go back to your ship immediately");
@@ -75,7 +77,7 @@ void go_to_the_town()
     } else if (choice == 2) {
         print("\nYou stayed in the wrecked ship for 6 days before you starved to death", "red");
     } else if (choice == 3) {
-        print("\nYou yell again but still no response. After a while you hear someone approaching. You go out to see who it is , but you are gunned down by desert pirates", "red");
+        shout_for_help();
     }
 }
 
