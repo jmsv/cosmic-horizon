@@ -4,6 +4,20 @@
 #include <iostream>
 #include <string>
 using namespace std;
+void story_line_guns_blazeing()
+{
+    print(".\n hello from the other siiiideee #adele");
+}
+
+void story_line_pirate()
+{
+    print(".\n hello from the other siiiideee #adele");
+}
+
+void story_line_stealth()
+{
+    print("\nWhile sneaking around on the station you see a silhouette of a humanoid figure \n", "green");
+}
 
 void find_lasergun()
 {
@@ -16,7 +30,22 @@ void repair_and_take_off()
     print("\nYou go back and repair your ship and you're able to go in to orbit, "
           "hoping to find your space station\n",
         "green");
-    // Story continues
+    print("\nAs you're floating lost in space, in the distance you see the space station, but there is already a ship you dont recognise docked\n,",
+        "magenta");
+    print("Do you:");
+    print("1) Attempt to dock else where ");
+    print("2) Leave your ship without docking and use you space suit to board silently");
+    print("3) Attempt to contact who ever aboard");
+
+    int choice = int_option(3);
+
+    if (choice == 1) {
+        story_line_guns_blazeing();
+    } else if (choice == 2) {
+        story_line_stealth();
+    } else if (choice == 3) {
+        story_line_pirate();
+    }
 }
 
 void scavenge_for_supplies()
