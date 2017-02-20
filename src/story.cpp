@@ -1,5 +1,11 @@
 #include "dbstore.h"
 #include "print.h"
+#include "story-branches/story_B.h"
+#include "story-branches/story_D.h"
+#include "story-branches/story_E.h"
+#include "story-branches/story_J.h"
+#include "story-branches/story_L.h"
+#include "story-branches/story_S.h"
 #include "userin.h"
 #include <iostream>
 #include <string>
@@ -126,6 +132,13 @@ void explore_new_planet()
 
 void start_story()
 {
+    start_B();
+    start_D();
+    start_E();
+    start_J();
+    start_L();
+    start_S();
+
     print("You wake up and find out you are stranded on a\n"
           "foreign planet after you crashed your spaceship.",
         "magenta");
