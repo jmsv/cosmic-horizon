@@ -132,13 +132,6 @@ void explore_new_planet()
 
 void start_story()
 {
-    start_B();
-    start_D();
-    start_E();
-    start_J();
-    start_L();
-    start_S();
-
     print("You wake up and find out you are stranded on a\n"
           "foreign planet after you crashed your spaceship.",
         "magenta");

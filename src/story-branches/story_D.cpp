@@ -4,6 +4,6 @@ using namespace std;
 
 int start_D()
 {
-    // Put your story code here
+    print("SUCK MY DICK");
     return 0;
 }
