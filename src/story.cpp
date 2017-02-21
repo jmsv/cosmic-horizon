@@ -23,6 +23,7 @@ void story_line_pirate()
 void story_line_stealth()
 {
     print("\nWhile sneaking around on the station you see a silhouette of a humanoid figure \n", "green");
+    start_story_D();
 }
 
 void find_lasergun()
@@ -36,7 +37,7 @@ void repair_and_take_off()
     print("\nYou go back and repair your ship and you're able to go in to orbit, "
           "hoping to find your space station\n",
         "green");
-    print("\nAs you're floating lost in space, in the distance you see the space station, but there is already a ship you dont recognise docked\n,",
+    print("\nAs you're floating lost in space, in the distance you see the space station, but there is already a ship you dont recognise docked\n",
         "magenta");
     print("Do you:");
     print("1) Attempt to dock else where ");
