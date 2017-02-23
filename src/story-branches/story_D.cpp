@@ -1,32 +1,28 @@
 #include "../dbstore.h"
-#include "../userin.h"
 #include "../print.h"
-#include <string>
+#include "../userin.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 void hide_n_follow()
 {
-   print("\nYou followed the pirate silently, while keeping your distance.\n","green");
-   print("\nEventually you got to one of the storage units of your station.\n","magenta");
-   print("Do you:");
-   print("1) Go inside");
-   print("2) Keep going to find the other pirate crew members");
-   print("3) Look for your crew members");
-    
-   int choice = int_option(3);
+    print("\nYou followed the pirate silently, while keeping your distance.\n", "green");
+    print("\nEventually you got to one of the storage units of your station.\n", "magenta");
+    print("Do you:");
+    print("1) Go inside");
+    print("2) Keep going to find the other pirate crew members");
+    print("3) Look for your crew members");
 
-   if (choice == 1) 
-   {
-   }
-   if (choice == 2) 
-   {
-   }
-   if (choice == 3) 
-   {
-   }
+    int choice = int_option(3);
+
+    if (choice == 1) {
+    }
+    if (choice == 2) {
+    }
+    if (choice == 3) {
+    }
 }
-
 
 void start_story_D()
 {
@@ -38,17 +34,14 @@ void start_story_D()
 
     int choice = int_option(3);
 
-    if (choice == 1) 
-    {
-        print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ","red");
+    if (choice == 1) {
+        print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
     }
-    if (choice == 2) 
-    {
+    if (choice == 2) {
         hide_n_follow();
     }
-    if (choice == 3) 
-    {
-        print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.","red"); 
-        print("He alerted the rest of the pirates and you were gunned down like a dog ","red");
+    if (choice == 3) {
+        print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
+        print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
     }
 }

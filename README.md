@@ -14,3 +14,11 @@ To install all dependencies (on ubuntu), run `sudo ./get_dependencies.sh` from t
 - `git reset --hard` - reset local repository to HEAD version
 
 To add your changes to the GitHub repo, use the above `add`, `commit` and `push` commands. Get the latest changes using `pull`.
+
+## Print colour scheme (see `print.cpp`)
+
+- **green**: good stuff
+- **red**: bad stuff
+- **cyan**: titles
+- **magenta**: neutral story text
+- **blue**: ask for user input
