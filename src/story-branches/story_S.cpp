@@ -13,13 +13,13 @@ void the_hunt()
 
 void the_ship_gun()
 {
-    print(".\n The Captin comes up to you and pats you on the back and says 'welcome aboard, but you still have to proove your self'", "green");
-    print(".\n The captin turns to the crew and shouts 'One with the ship, One with the crew!'", "green");
+    print(".\n The Captain comes up to you and pats you on the back and says 'welcome aboard, but you still have to proove your self'", "green");
+    print(".\n The captain turns to the crew and shouts 'One with the ship, One with the crew!'", "green");
     print(".\n The crew start to chant 'One with the ship, One with the crew!' and you feel a bit out of place but you join in", "green");
     print(".\n After a few days sailing you spot another ship", "magenta");
     print(".\n Do you do:");
 
-    print("1) shout for thta you have seen it");
+    print("1) shout for that you have seen it");
     print("2) keep quite and hope they get away");
 
     int choice = int_option(2);
@@ -29,12 +29,12 @@ void the_ship_gun()
         the_hunt();
     }
     if (choice == 2) {
-        print("The captin shouts up to you 'Are you blind, your not even wearing an eye patch yet!'");
+        print("The captain shouts up to you 'Are you blind, your not even wearing an eye patch yet!'");
     }
 }
-void im_the_captin_now()
+void im_the_captain_now()
 {
-    print(".\n Im the captin now");
+    print(".\n Im the captain now");
     print(".\n You win");
 }
 
@@ -52,7 +52,7 @@ void sword_fight4()
     if (choice == 1) {
         print("you have waited for just the right moment");
         print(".\n he swings and you trip him and then chop his head off while hes on the floor");
-        im_the_captin_now();
+        im_the_captain_now();
     }
     if (choice == 2) {
         print(".\n You retreat too much");
@@ -121,7 +121,7 @@ void sword_fight()
 
 void the_ship_sword()
 {
-    print(".\n The Captin comes up to you im the master swords man abord this ship do you think you can beat me?", "magenta");
+    print(".\n The Captain comes up to you im the master swords man abord this ship do you think you can beat me?", "magenta");
     print(" 1) Yes");
     print(" 2) No");
 
