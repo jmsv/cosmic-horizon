@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 using namespace std;
+void join_them()
+{
+    print("welcome");
+}
 
 void mind_control()
 {
@@ -11,7 +15,7 @@ void mind_control()
     print(".\n When you wake you can suddenly understand them", "green");
     print(".\n He says 'I have looked through your mind, im going to give you an ultimatum'", "magenta");
     print(".\n Do you");
-    
+
     print("1) Join me and my crew in a life of piracy");
     print("2) I kill you");
 
@@ -22,8 +26,8 @@ void mind_control()
     }
     if (choice == 2) {
         print("BLAST", "red");
+    }
 }
-
 void aboard()
 {
     print(".\n This figure stands before you vaguely humanoid, he starts making noises getting more more agressive", "green");
