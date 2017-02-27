@@ -1,4 +1,4 @@
 #include <string>
 using namespace std;
 
-int start_E();
+int start_story_E();

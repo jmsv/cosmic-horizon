@@ -16,7 +16,7 @@ void story_join_pirates()
 }
 void story_line_guns_blazeing()
 {
-    print(".\n hello from the other siiiideee #adele");
+    start_story_E();
 }
 
 void story_line_stealth()
