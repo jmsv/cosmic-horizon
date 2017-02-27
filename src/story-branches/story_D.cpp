@@ -120,7 +120,7 @@ void hide_n_follow()
         go_inside();
     }
     if (choice == 2) {
-        print("You follow the pirate to the food court and for a moment you stare at the other pirates ", "red");
+        print("You follow the pirate to the food court and for a moment you stare at the other pirates and you get casually shot in the head ", "red");
     }
     if (choice == 3) {
         crew_member_search();
