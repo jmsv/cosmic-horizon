@@ -10,12 +10,11 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void story_line_guns_blazeing()
+void story_join_pirates()
 {
-    print(".\n hello from the other siiiideee #adele");
+    start_story_S();
 }
-
-void story_line_pirate()
+void story_line_guns_blazeing()
 {
     print(".\n hello from the other siiiideee #adele");
 }
@@ -42,7 +41,7 @@ void repair_and_take_off()
     print("Do you:");
     print("1) Attempt to dock else where ");
     print("2) Leave your ship without docking and use you space suit to board silently");
-    print("3) Attempt to contact who ever aboard");
+    print("3) Attempt to contact who ever is aboard");
 
     int choice = int_option(3);
 
@@ -51,7 +50,7 @@ void repair_and_take_off()
     } else if (choice == 2) {
         story_line_stealth();
     } else if (choice == 3) {
-        story_line_pirate();
+        story_join_pirates();
     }
 }
 

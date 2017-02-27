@@ -21,6 +21,8 @@ void print(string text, string textColour, bool newLine)
         printf("%c[1;35m", 27);
     } else if (textColour == "cyan") {
         printf("%c[1;36m", 27);
+    } else if (textColour == "brown") {
+        printf("%c[1;94m", 27);
     }
 
     if (newLine) {
