@@ -7,7 +7,7 @@ using namespace std;
 
 void board_station()
 {
-    print(".\n hello");
+    print(".\n hello"); // ...
 }
 
 void start_story_E()
