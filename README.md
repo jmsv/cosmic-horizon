@@ -6,6 +6,8 @@ To install all dependencies (on ubuntu), run `sudo ./get_dependencies.sh` from t
 
 ## Helpful git stuff
 
+In Codio, before running any git commands, type `cd cosmic-horizon/` to change directory to the repository directory, otherwise you'll get a '`fatal: Not a git repository`' message.
+
 - `git status` - shows local changes, what files are tracked
 - `git add -A` - adds all new local changes
 - `git commit -a -m "Short description"` - wraps changes in a commit (`-a` means all changes, `-m ""` is the commit message)
