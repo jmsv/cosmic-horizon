@@ -5,9 +5,33 @@
 #include <string>
 using namespace std;
 
+void attack_pirate()
+{
+    print(".\n hello");
+}
+
 void board_station()
 {
-    print(".\n hello"); // ...
+    print(".\n You board the space station and look around for a map");
+    print(".\n The map shows the entire layout of the station, as well as the number of people aboard");
+    print(".\n You see a shadow down the hall, someone is coming this way");
+    print(".\n do you?");
+
+    print("1) Attempt to reason with the person");
+    print("2) Hide and hope that he doesn't see you");
+    print("3) Attack him while he's off guard");
+
+    int choice = int_option(3);
+
+    if (choice == 1) {
+        print(".\n The pirate shoots you in the face as soon as he sees you");
+    }
+    if (choice == 2) {
+        print(".\n The pirate notices you hiding and shoots you");
+    }
+    if (choice == 3) {
+        attack_pirate();
+    }
 }
 
 void start_story_E()
