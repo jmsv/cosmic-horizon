@@ -5,9 +5,32 @@
 #include <string>
 using namespace std;
 
-void attack_pirate()
+void armory()
 {
     print(".\n hello");
+}
+
+void attack_pirate()
+{
+    print(".\n You attack the pirate and manage to kill him, then search his body for useful items");
+    print(".\n You take the pirates sidearm to defend yourself with");
+    print(".\n You check the map again and decide which part of the station to go to");
+
+    print("1) Go to the medbay?");
+    print("2) Go to the armory?");
+    print("3) go to the cafeteria");
+
+    int choice = int_option(3);
+
+    if (choice == 1) {
+        print(".\n The medbay is filled with pirates and they open fire on you");
+    }
+    if (choice == 2) {
+        armory();
+    }
+    if (choice == 3) {
+        print(".\n The cafeteria is filled with pirates eating lunch and they open fire on you");
+    }
 }
 
 void board_station()
