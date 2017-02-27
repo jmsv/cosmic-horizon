@@ -17,6 +17,7 @@ int int_to_string(string string_in)
 
 bool valid_name(string test_name)
 {
+    // Check name is valid
     return true;
 }
 
