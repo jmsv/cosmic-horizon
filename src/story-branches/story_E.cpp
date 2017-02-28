@@ -5,9 +5,38 @@
 #include <string>
 using namespace std;
 
-void armory()
+void vents()
 {
     print(".\n hello");
+}
+
+void kill_pirates()
+{
+    print(".\n hello");
+}
+
+void armory()
+{
+    print(".\n You walk into the armory and see that it has been ransacked, however you notice that there is still some ammo left");
+    print(".\n You take the ammo and save it for later");
+    print(".\n You hear footsteps, some pirates are on their way");
+    print(".\n Do you?");
+
+    print("1) Hide and hope that they don't see you");
+    print("Attack the pirates when they walk through the door");
+    print("escape through the vent system");
+
+    int choice = int_option(3);
+
+    if (choice == 1) {
+        print(".\n The pirates see you hiding and shoot you");
+    }
+    if (choice == 2) {
+        kill_pirates();
+    }
+    if (choice == 3) {
+        vents();
+    }
 }
 
 void attack_pirate()
