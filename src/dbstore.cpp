@@ -20,6 +20,13 @@ int database_test()
     return 0;
 }
 
+int create_database_table()
+{
+    char* sql;
+    sql = (char*)"CREATE TABLE INVENTORY("
+                 ");";
+}
+
 int create_database(string user)
 {
     // Create database called [user].db
