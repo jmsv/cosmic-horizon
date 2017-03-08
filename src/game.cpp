@@ -10,27 +10,14 @@ using namespace std;
 
 int main()
 {
-    //database_test();
-    /*
     print("Name: ", "", false);
     string name = "";
-    name = get_name();
+    name = get_text();
     std::cout << "Hello, " << name << "!\n";
-    */
 
-    /*
-    print("red test", "red");
-    print("blue test", "blue");
-    print("green test", "green");
-    print("yellow test", "yellow");
-    print("magenta test", "magenta");
-    print("cyan test", "cyan");
-    print();
-    */
+    create_user_database(name);
 
     print("\n" + get_ascii_title(), "cyan");
-
-    // Database load/create needs to be implemented
 
     print("Do you want to play Cosmic Horizon? ");
     bool choice;
