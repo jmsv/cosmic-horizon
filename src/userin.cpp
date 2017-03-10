@@ -25,11 +25,7 @@ string get_text()
 {
     string textIn = "";
     cin >> textIn;
-    if (valid_name(textIn) == true) {
-        return textIn;
-    } else {
-        return "";
-    }
+    return textIn;
 }
 
 bool yes_or_no()

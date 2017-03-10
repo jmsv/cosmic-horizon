@@ -1,7 +1,13 @@
-#include <fstream>
-#include <iostream>
+#include <algorithm>
+#include <locale>
 #include <string>
 using namespace std;
+
+string to_lower_case(string data)
+{
+    transform(data.begin(), data.end(), data.begin(), (int (*)(int))tolower);
+    return data;
+}
 
 string get_ascii_title()
 {
