@@ -21,10 +21,26 @@ bool valid_name(string test_name)
     return true;
 }
 
+bool valid_text(string text)
+{
+    if (text.length() < 1){
+        return false;
+    }
+    return true;
+}
+
 string get_text()
 {
     string textIn = "";
-    cin >> textIn;
+    bool validIn = false;
+    while(!validIn){
+        getline(cin, textIn);
+        if (!valid_text(textIn)){
+            print("Invalid input - please try again", "red");
+        } else {
+            validIn = true;
+        }
+    }
     return textIn;
 }
 

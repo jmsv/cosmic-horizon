@@ -5,24 +5,6 @@
 #include <string>
 using namespace std;
 
-int database_test()
-{
-    sqlite3* db;
-    char* zErrMsg = 0;
-    int rc;
-
-    rc = sqlite3_open("database/test.db", &db);
-
-    if (rc) {
-        return (0);
-    } else {
-        return 1;
-    }
-    sqlite3_close(db);
-
-    return 0;
-}
-
 static int callback(void* NotUsed, int argc, char** argv, char** azColName)
 {
     int i;
@@ -58,10 +40,18 @@ int create_user_database(string player_name)
 
     // Execute SQL statement
     rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+    
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
+        string zErrMsg_str = zErrMsg;
+        string tableExists = "table INVENTORY already exists";
+        if (tableExists == zErrMsg_str) {
+            print("Loaded " + databaseName);
+        } else {
+            print(zErrMsg_str);
+            sqlite3_free(zErrMsg);
+        }
     }
+    
     sqlite3_close(db);
     return 0;
 }
