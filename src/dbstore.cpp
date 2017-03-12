@@ -40,7 +40,7 @@ int create_user_database(string player_name)
 
     // Execute SQL statement
     rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-    
+
     if (rc != SQLITE_OK) {
         string zErrMsg_str = zErrMsg;
         string tableExists = "table INVENTORY already exists";
@@ -51,7 +51,7 @@ int create_user_database(string player_name)
             sqlite3_free(zErrMsg);
         }
     }
-    
+
     sqlite3_close(db);
     return 0;
 }

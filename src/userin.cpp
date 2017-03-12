@@ -17,25 +17,27 @@ int int_to_string(string string_in)
 
 bool valid_name(string test_name)
 {
-    // Check name is valid
-    return true;
-}
-
-bool valid_text(string text)
-{
-    if (text.length() < 1){
+    if (test_name.find(" ") != string::npos) {
         return false;
     }
     return true;
 }
 
-string get_text()
+bool valid_text(string text)
+{
+    if (text.length() < 1) {
+        return false;
+    }
+    return true;
+}
+
+string get_text(bool name)
 {
     string textIn = "";
     bool validIn = false;
-    while(!validIn){
+    while (!validIn) {
         getline(cin, textIn);
-        if (!valid_text(textIn)){
+        if (!valid_text(textIn)) {
             print("Invalid input - please try again", "red");
         } else {
             validIn = true;
@@ -65,19 +67,21 @@ bool yes_or_no()
 
 int int_option(int max_digit)
 {
+    if (cin.peek() == '\n')
+        cin.ignore();
     bool valid_in = false;
-    string string_in = "-1";
-    int answer = int_to_string(string_in);
+    string stringIn = "-1";
+    int answer;
     string prompt = "Enter a value between 1 and " + to_string(max_digit) + ": ";
-    //print(prompt, "blue", false);
     while (!valid_in) {
         print(prompt, "blue", false);
-        cin >> string_in;
-        answer = int_to_string(string_in);
+        getline(cin, stringIn);
+        if (stringIn.length() == 1) {
+            answer = int_to_string(stringIn);
+        }
         if (answer > 0 & answer <= max_digit) {
             valid_in = true;
         } else {
-            cin.clear();
             print("Invalid option. Try again...", "red");
         }
     }
