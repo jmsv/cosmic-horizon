@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
     print("\n" + get_ascii_title(), "cyan");
-    
+
     print("Name: ", "", false);
     string name = "";
     name = get_text(true);
@@ -19,14 +19,14 @@ int main()
 
     create_user_database(name);
 
+    // How to add item to inventory:
     add_to_inventory("potato");
-    add_to_inventory("lmao", "false");
-    add_to_inventory("meh");
-    
-    if(do_i_have("magic")){
-        print("you have a magic");
+
+    // How to check if inventory contains something:
+    if (do_i_have("avocado")) {
+        print("you have an avocado  :D");
     } else {
-        print("you do not have a magic");
+        print("you do not have an avocado  :'(");
     }
 
     print("\nDo you want to play Cosmic Horizon? ");
