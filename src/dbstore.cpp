@@ -126,8 +126,9 @@ int add_to_inventory(string itemName, string got)
     sqlString = "INSERT INTO INVENTORY ("
                 "NAME, GOT"
                 ") VALUES ("
-                "\"" + itemName + "\", \"" + got + "\""
-                ");";
+                "\""
+        + itemName + "\", \"" + got + "\""
+                                      ");";
     sql = (char*)sqlString.c_str();
 
     // Execute SQL statement
@@ -135,7 +136,7 @@ int add_to_inventory(string itemName, string got)
 
     if (rc != SQLITE_OK) {
         string zErrMsg_str = zErrMsg;
-        if(zErrMsg_str == "UNIQUE constraint failed: INVENTORY.NAME"){
+        if (zErrMsg_str == "UNIQUE constraint failed: INVENTORY.NAME") {
             print(itemName + " already in database");
         } else {
             print(zErrMsg_str);
@@ -170,19 +171,19 @@ bool do_i_have(string itemName)
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
         return (0);
     }
-    
-    sqlite3_stmt *stmt;
-    const char *sql = "SELECT * FROM INVENTORY";
-    /*int */rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
+
+    sqlite3_stmt* stmt;
+    const char* sql = "SELECT * FROM INVENTORY";
+    /*int */ rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
     if (rc != SQLITE_OK) {
         print("error: ", sqlite3_errmsg(db));
         return false;
     }
     while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
-        string name = reinterpret_cast<const char*>(sqlite3_column_text (stmt, 0));
-        string got = reinterpret_cast<const char*>(sqlite3_column_text (stmt, 1));
-        string callbackString = name + (string)"=" + got;
-        string existsString = itemName + (string)"=" + got;
+        string name = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+        string got = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
+        string callbackString = name + (string) "=" + got;
+        string existsString = itemName + (string) "=" + got;
         if (callbackString.find(existsString) != string::npos) {
             return true;
         } else {
