@@ -12,10 +12,12 @@ int main()
 {
     print("Name: ", "", false);
     string name = "";
-    name = get_text();
-    std::cout << "Hello, " << name << "!\n";
+    name = get_text(true);
+    print("Hello, " + name + "!\n");
 
     create_user_database(name);
+
+    add_to_inventory("potato");
 
     print("\n" + get_ascii_title(), "cyan");
 

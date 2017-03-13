@@ -23,10 +23,15 @@ bool valid_name(string test_name)
     return true;
 }
 
-bool valid_text(string text)
+bool valid_text(string text, bool name)
 {
     if (text.length() < 1) {
         return false;
+    }
+    if (name) {
+        if (!valid_name(text)) {
+            return false;
+        }
     }
     return true;
 }
@@ -37,7 +42,7 @@ string get_text(bool name)
     bool validIn = false;
     while (!validIn) {
         getline(cin, textIn);
-        if (!valid_text(textIn)) {
+        if (!valid_text(textIn, name)) {
             print("Invalid input - please try again", "red");
         } else {
             validIn = true;
