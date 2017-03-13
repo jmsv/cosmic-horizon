@@ -161,7 +161,6 @@ bool do_i_have(string itemName)
     sqlite3* db;
     char* zErrMsg = 0;
     int rc;
-    //char* sql;
 
     string databaseName = get_recent_user_db_filepath();
 
@@ -169,12 +168,12 @@ bool do_i_have(string itemName)
     rc = sqlite3_open(databaseName.c_str(), &db);
     if (rc) {
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-        return (0);
+        return false;
     }
 
     sqlite3_stmt* stmt;
     const char* sql = "SELECT * FROM INVENTORY";
-    /*int */ rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
+    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
     if (rc != SQLITE_OK) {
         print("error: ", sqlite3_errmsg(db));
         return false;
@@ -186,8 +185,6 @@ bool do_i_have(string itemName)
         string existsString = itemName + (string) "=" + got;
         if (callbackString.find(existsString) != string::npos) {
             return true;
-        } else {
-            return false;
         }
     }
     if (rc != SQLITE_DONE) {
