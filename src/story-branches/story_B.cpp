@@ -16,9 +16,10 @@ void found_help()
 {
     print("On the island, you have found a small abanded house.\n"
           "You start to explore the house to find a way to communicate\n"
-          "to you leader back home");
-    print("Whilst exploring the house, you see a room filled with weapons");
-    print("What do you do?");
+          "to you leader back home",
+        "magenta");
+    print("Whilst exploring the house, you see a room filled with weapons", "magenta");
+    print("What do you do?", "blue");
 
     print("1. Take some of the weapons and go back to your ship");
     print("2. Leave the weapons and carry on searching for a communication method");
@@ -39,9 +40,10 @@ void start_B()
 {
     //Just starters
     print("You wake up to find that you are on a\n"
-          "wrecked ship, on a deserted island");
-    print("You get up and see something in the distant");
-    print("Do you....?");
+          "wrecked ship, on a deserted island",
+        "magenta");
+    print("You get up and see something in the distant", "magenta");
+    print("Do you....?", "blue");
 
     print("1. Walk towards the object");
     print("2. Run the opposite direction to find help");
