@@ -184,6 +184,8 @@ bool do_i_have(string itemName)
         string callbackString = name + (string) "=" + got;
         string existsString = itemName + (string) "=" + got;
         if (callbackString.find(existsString) != string::npos) {
+            sqlite3_finalize(stmt);
+            sqlite3_close(db);
             return true;
         }
     }
