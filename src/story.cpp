@@ -28,7 +28,14 @@ void story_line_stealth()
 void find_lasergun()
 {
     print("\nYou find a laser gun with rechargeable ammo\n", "green");
-    // Laser gun needs to be added to inventory
+
+    add_to_inventory("Lazer gun");
+
+    if (do_i_have("Lazer gun")) {
+        print("You now have a Lazer gun");
+    } else {
+        print("You do not have a Lazer gun");
+    }
 }
 
 void repair_and_take_off()
