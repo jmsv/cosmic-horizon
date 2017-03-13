@@ -237,10 +237,28 @@ void join_them()
     int choice = int_option(3);
 
     if (choice == 1) {
+
+        add_to_inventory("Light saber");
+
+        if (do_i_have("Light saber")) {
+            print("You now have a Light saber");
+        } else {
+            print("You do not have a Light saber");
+        }
+
         print(".\n Good we will have to test you when we get back to the ship", "green");
         the_ship_sword();
     }
     if (choice == 2) {
+
+        add_to_inventory("Lazer_gun");
+
+        if (do_i_have("Lazer_gun")) {
+            print("You now have a Lazer_gun");
+        } else {
+            print("You do not have a Lazer_gun");
+        }
+
         print(".\n Welcome aboard", "green");
         the_ship_gun();
     }
