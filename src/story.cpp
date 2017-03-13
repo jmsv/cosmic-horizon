@@ -10,21 +10,23 @@
 #include <iostream>
 #include <string>
 using namespace std;
+//starting story line pirates
 void story_join_pirates()
 {
     start_story_S();
 }
+//starting story line guns blazing
 void story_line_guns_blazeing()
 {
     start_story_E();
 }
-
+//starting story line stealth
 void story_line_stealth()
 {
     print("\nYou managed to enter the space station through the garbage disposal unit\n", "green");
     start_story_D();
 }
-
+//laser guns
 void find_lasergun()
 {
     print("\nYou find a laser gun with rechargeable ammo\n", "green");
@@ -37,7 +39,7 @@ void find_lasergun()
         print("You do not have a Lazer gun");
     }
 }
-
+// starting different story lines
 void repair_and_take_off()
 {
     print("\nYou go back and repair your ship and you're able to go in to orbit, hoping to find your space station.\n ", "green");
@@ -60,7 +62,7 @@ void repair_and_take_off()
         story_join_pirates();
     }
 }
-
+//finding lazer gun or go to space
 void scavenge_for_supplies()
 {
     print("\nYou go into the first building and find carefully stashed protein rich molecular bars.\n", "green");
@@ -83,7 +85,7 @@ void scavenge_for_supplies()
         repair_and_take_off();
     }
 }
-
+// looking for help
 void shout_for_help()
 {
     print("\nYou yell for help, but there is  no responce.", "green");
@@ -106,7 +108,7 @@ void shout_for_help()
         print("\nYou yell again but still no response. After a while you hear someone approaching. You go out to see who it is , but you are gunned down by desert pirates", "red");
     }
 }
-
+//exploring the town
 void go_to_the_town()
 {
     print("\nYou reach the town and see it has been abandoned. It has a scary vibe and looked like\n"
@@ -127,7 +129,7 @@ void go_to_the_town()
         shout_for_help();
     }
 }
-
+//exploring the planet
 void explore_new_planet()
 {
     print("\nYou get up and climb the capsule, so that you can examine the terrain around you.\n"
@@ -143,7 +145,7 @@ void explore_new_planet()
         print("\nYou stayed in the wrecked ship for 6 days before you starved to death", "red");
     }
 }
-
+//start of the game
 void start_story()
 {
     print("You wake up in an emergency space ejection capsule with a severe headache and empty stomach.\n"
