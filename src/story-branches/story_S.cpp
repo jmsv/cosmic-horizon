@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+//your the captin now
 void now_captin()
 {
     print(".\n You gather the crew around and you tell them about your home planet", "green");
@@ -31,7 +31,7 @@ void now_captin()
         print(".\n Set sail for Earth", "green");
     }
 }
-
+//winning the gun fight
 void the_gun()
 {
     print(".\n You get your self ready and start to say 'I am one witht he force, the force is with me'", "green");
@@ -53,7 +53,7 @@ void the_gun()
         now_captin();
     }
 }
-
+//gun fight
 void gun_crate()
 {
     print(".\n You spot a massive gun in a crate", "green");
@@ -71,7 +71,7 @@ void gun_crate()
         print("The gun they gave you jams aand blows up in your face killing you", "red");
     }
 }
-
+// start of the hunt
 void the_hunt()
 {
     print(".\n After chasing for what seems like hours it all comes down to this", "green");
@@ -96,7 +96,7 @@ void the_hunt()
         gun_crate();
     }
 }
-
+// start of gun story line
 void the_ship_gun()
 {
     print(".\n The Captain comes up to you and pats you on the back and says 'welcome aboard, but you still have to proove your self'", "green");
@@ -119,12 +119,13 @@ void the_ship_gun()
         print(".\n He looks up and just shoots you,your body falls limply of the edge and you just left floating as they sail away", "red");
     }
 }
+//becoming captin
 void im_the_captain_now()
 {
     print(".\n Im the captain now", "green");
     print(".\n You win", "green");
 }
-
+// sword fight 4
 void sword_fight4()
 {
     print(".\n You take a step back", "green");
@@ -146,7 +147,7 @@ void sword_fight4()
         print(".\n He backs you into the corner and chops you into lots of little pieces", "red");
     }
 }
-
+// sword fight 3
 void sword_fight3()
 {
     print(".\n You take a step back", "green");
@@ -166,7 +167,7 @@ void sword_fight3()
         sword_fight4();
     }
 }
-
+// sword fight 2
 void sword_fight2()
 {
     print(".\n You take a step back", "green");
@@ -186,7 +187,7 @@ void sword_fight2()
         sword_fight3();
     }
 }
-
+// sword fight 1
 void sword_fight()
 {
     print(".\n The bacics advance and attack, and retreat and defend", "green");
@@ -205,7 +206,7 @@ void sword_fight()
         sword_fight2();
     }
 }
-
+// start of sword story line
 void the_ship_sword()
 {
     print(".\n The Captain comes up to you and says 'Im the master swords man abord this ship do you think you can beat me?'", "magenta");
@@ -223,7 +224,7 @@ void the_ship_sword()
         print(".\n In one fluid swoop he swings up and splits you though the middle", "red");
     }
 }
-
+// joining the pirates
 void join_them()
 {
     print(".\n We are space pirates and we are destined to travel the 7 galaxys", "green");
@@ -266,7 +267,7 @@ void join_them()
         print(".\n We have no need for women", "red");
     }
 }
-
+//meeting the pirate
 void mind_control()
 {
     print(".\n You black out", "green");
@@ -286,6 +287,7 @@ void mind_control()
         print("BLAST", "red");
     }
 }
+//aboard the ship
 void aboard()
 {
     print(".\n This figure stands before you vaguely humanoid, he starts making noises getting more more agressive", "green");
@@ -309,7 +311,7 @@ void aboard()
         mind_control();
     }
 }
-
+//pitate story start
 void start_story_S()
 {
     print(".\n You try to contact who ever is aboard", "green");
