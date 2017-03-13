@@ -7,15 +7,19 @@ using namespace std;
 
 void win_game()
 {
-    print("\nYou killed the captain\n", "green");
-    print("\nAfter all this mess you take control over your station again and contact your home planet Earth. You set the coordinates and travelled with the speed of light\n", "magenta");
-    print("\n The end \n");
+    print("\nYou enter the control unit of the station filled with vengence and concentration. The captain looks at you\n"
+          "and smiles. You grab him by the neck and and stab him in the hearth while looking directly in his eyes\n",
+        "green");
+    print("\nAfter all this mess you take control over your station again and contact your home planet Earth.\n"
+          "You set the coordinates and travell back to Earth with the speed of light.\n",
+        "magenta");
+    print("\n THE END \n", "cyan");
 }
 void mad_man_hands()
 {
     print("\nYou decided to eliminate the pirates with your bare hands\n", "green");
-    print("\nThe adrenaline made you insane and you went into a killstreak like Rambo. 15 minutes later after you have broken more than 60 necks", "magenta");
-    print("1) You go the captain and kill him no questions asked");
+    print("\nThe adrenaline made you insane and you went into a killstreak like Rambo. 15 minutes later after you have broken more than 60 necks. Do : ", "magenta");
+    print("1) You go to the captain and kill him no questions asked");
     print("2) You go to the captain and find out if he has allies");
 
     int choice = int_option(2);
@@ -30,7 +34,7 @@ void mad_man_hands()
 void mad_man()
 {
     print("\nYou got out your knife and rushed on to the deck\n", "green");
-    print("\nThe adrenaline made you insane and you went into a killstreak like Logan. After 15 minutes you killed more than 60 pirates, the majority of them decaputated", "magenta");
+    print("\nThe adrenaline made you insane and you went into a killstreak like Logan. After 15 minutes you killed more than 60 pirates, the majority of them decaputated. Do : ", "magenta");
     print("1) You go the captain and kill him no questions asked");
     print("2) You go to the captain and find out if he has allies");
 
@@ -46,10 +50,10 @@ void mad_man()
 void adrenaline_shot()
 {
     print("\nYou injected an adrenaline shot in your neck\n", "green");
-    print("\nYou waited for the adrenaline to take over your body and became almost invincible", "magenta");
+    print("\nYou waited for the adrenaline to take over your body and become almost invincible", "magenta");
     print("Do you:");
-    print("1) Use knife");
-    print("2) Use hands");
+    print("1) Use a knife");
+    print("2) Use your hands");
 
     int choice = int_option(2);
 
@@ -62,7 +66,7 @@ void adrenaline_shot()
 }
 void kill_crew()
 {
-    print("\nYou chose to kill the crew first and then the captain\n", "green");
+    print("\nYou choose to kill the crew first and then the captain\n", "green");
     print("\nYou go to the main deck where all the pirates are", "magenta");
     print("Do you:");
     print("1) Take adrenaline shot");
@@ -84,7 +88,7 @@ void kill_crew()
 void intel_plan()
 {
     print("\nYou decided to interogate the last pirate of the group\n", "green");
-    print("\nYou find out that the captain just ordered to kill your crew members because he found out you were on board. Out of anger you just snap the pirates neck.You found an adrenaline shot in the pirates pocket", "magenta");
+    print("\nYou find out that the captain just ordered to kill all your crew members because he found out you were on board. Out of anger you just snaped the pirates neck.You found an adrenaline shot in his pocket and you took it", "magenta");
     print("Do you");
     print("1) Go to the captain");
     print("2) Kill the whole crew on the ship first and enjoy killing the captain");
@@ -116,7 +120,7 @@ void stealth_and_die()
 }
 void proceed_kill()
 {
-    print("\nYou killed the last of the group\n", "green");
+    print("\nYou killed the last one of the group\n", "green");
     print("\nAfter you loot the bodies, you found a bigger knife and smoke grenade. Few minutes later you hear another group approaching", "magenta");
     print("Do you:");
     print("1) Continue stealth approach");
@@ -134,7 +138,7 @@ void proceed_kill()
 void double_kill()
 {
     print("\nYou slit the throat of the closest to you crew member\n", "green");
-    print("\nYou jump and kill 2 more of the pirates and only the last on from the group is left ", "magenta");
+    print("\nYou sneak and stealth kill 2 more of the pirates and only the last one from the group is left ", "magenta");
     print("Do you:");
     print("1) Interogate and kill");
     print("2) Kill");
@@ -160,7 +164,7 @@ void stealth_killstreak()
     int choice = int_option(3);
 
     if (choice == 1) {
-        print("When you stab him, he screams, the other crew members turn around and shout you", "red");
+        print("When you stab him in the leg, he screams, the other crew members turn around and shoot you", "red");
     }
     if (choice == 2) {
         double_kill();
@@ -176,12 +180,12 @@ void take_hostage()
     print("\nYou tell them to lead you to whoever is in charge.They lead you to their captain  ", "magenta");
     print("Do you:");
     print("1) Ask the captain to free your crew so that you can go on your way");
-    print("2) Tell him to release your crew and to get out of the station");
+    print("2) Tell him to release your crew and to get out of the space station");
 
     int choice = int_option(2);
 
     if (choice == 1) {
-        print("He says you're not getting out alive and pushes a self destruction button", "red");
+        print("He says you're not getting out alive and pushes a self-destruct button", "red");
     }
     if (choice == 2) {
         print("He blinks oddly but you don't acknowledge it and moments later you get a bullet in the back of the head", "red");
@@ -200,7 +204,7 @@ void crew_member_search_with_guns()
     int choice = int_option(3);
 
     if (choice == 1) {
-        print("When you shoot you don't take cover and fly back from the impact wave causing you to break your back and die in pain");
+        print("When you shoot you don't take cover and fly back from the impact wave causing you to break your spine and die in pain");
     }
     if (choice == 2) {
         take_hostage();
@@ -212,7 +216,7 @@ void crew_member_search_with_guns()
 void badass_for_a_moment()
 {
     print("\nYou snap the pirates neck and drag the body out of the way\n", "green");
-    print("\nWhile dragging the body his com activated. There was no response and after a short while you are surrounded by 20-30 pirates ", "magenta");
+    print("\nWhile dragging the body his com activates. There was no response and after a short while you are surrounded by 20-30 pirates ", "magenta");
     print("Do you");
     print("1) Attempt mass murder.");
     print("2) Try and be friendly");
@@ -250,7 +254,7 @@ void crew_member_search()
 void go_inside()
 {
     print("\nYou go inside the storage unit.\n", "green");
-    print("\nYou see a armor vest and a mini grenade launcher\n", "magenta");
+    print("\nYou see an armour vest and a mini grenade launcher\n", "magenta");
     print("Do you:");
     print("1) Look for your crew members");
     print("2) Find the other pirate crew members and eliminate them");

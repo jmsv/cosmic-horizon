@@ -10,16 +10,26 @@ using namespace std;
 
 int main()
 {
+    print("\n" + get_ascii_title(), "cyan");
+    
     print("Name: ", "", false);
     string name = "";
-    name = get_text();
-    std::cout << "Hello, " << name << "!\n";
+    name = get_text(true);
+    print("Hello, " + name + "!");
 
     create_user_database(name);
 
-    print("\n" + get_ascii_title(), "cyan");
+    add_to_inventory("potato");
+    add_to_inventory("lmao", "false");
+    add_to_inventory("meh");
+    
+    if(do_i_have("magic")){
+        print("you have a magic");
+    } else {
+        print("you do not have a magic");
+    }
 
-    print("Do you want to play Cosmic Horizon? ");
+    print("\nDo you want to play Cosmic Horizon? ");
     bool choice;
     choice = yes_or_no();
     if (choice) {
