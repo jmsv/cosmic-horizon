@@ -2,8 +2,6 @@
 
 To install all dependencies (on ubuntu), run `sudo ./get_dependencies.sh` from the root directory of this repository
 
-1. SQLite: `sudo apt-get install sqlite3 libsqlite3-dev`
-
 ## Helpful git stuff
 
 In Codio, before running any git commands, type `cd cosmic-horizon/` to change directory to the repository directory, otherwise you'll get a '`fatal: Not a git repository`' message.
