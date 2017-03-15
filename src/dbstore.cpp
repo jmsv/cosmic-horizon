@@ -1,6 +1,6 @@
+#include "dbstore.h"
 #include "misc.h"
 #include "print.h"
-#include "dbstore.h"
 #include <fstream>
 #include <iostream>
 #include <limits.h>

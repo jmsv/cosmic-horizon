@@ -5,6 +5,7 @@
 #include "story-branches/story_E.h"
 #include "story-branches/story_L.h"
 #include "story-branches/story_S.h"
+#include "story_item.h"
 #include "userin.h"
 #include <iostream>
 #include <string>
@@ -148,18 +149,25 @@ void explore_new_planet()
 
 void start_story()
 {
-    print("You wake up in an emergency space ejection capsule with a severe headache and empty stomach.\n"
-          "The last thing you remember was prepairing your space station to maintain orbit around a hostile\n"
-          "planet called Gem-435-ini. You don't remember how you ended up here, so you try to contact your\n"
-          "space station but the coms in the capsule are broken. Left with no food and way to establish contact\n"
-          "with your crew members, you try to gather your thoughts and figure out how to get back up there.\n",
-        "magenta");
-    print("What do you do?");
-    print("1) Kill yourself");
-    print("2) Get up and explore");
-    print("3) Stay in the wrecked ship and wait for help");
+    StoryItem item = StoryItem();
 
-    int choice = int_option(3);
+    item.preText = "You wake up in an emergency space ejection capsule with a severe headache and empty stomach.\n"
+                   "The last thing you remember was prepairing your space station to maintain orbit around a hostile\n"
+                   "planet called Gem-435-ini. You don't remember how you ended up here, so you try to contact your\n"
+                   "space station but the coms in the capsule are broken. Left with no food and way to establish contact\n"
+                   "with your crew members, you try to gather your thoughts and figure out how to get back up there.\n";
+
+    item.preTextColour = "magenta";
+
+    item.prompt = "What do you do?";
+
+    item.options = {
+        "Kill yourself", // 1
+        "Get up and explore", // 2
+        "Stay in the wrecked ship and wait for help" // 3
+    };
+
+    int choice = item.run();
 
     if (choice == 1) {
         print("\nYou put a spike on the ground and climb on top of your ship. You jump and while you are falling you see a small town in the distance, but it's too late and you die.", "red");
