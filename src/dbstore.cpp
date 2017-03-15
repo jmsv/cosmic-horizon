@@ -1,5 +1,6 @@
 #include "misc.h"
 #include "print.h"
+#include "dbstore.h"
 #include <fstream>
 #include <iostream>
 #include <limits.h>
@@ -14,7 +15,6 @@ static int callback(void* NotUsed, int argc, char** argv, char** azColName)
     int i;
     string output = "";
     for (i = 0; i < argc; i++) {
-        //printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
         output += (string)azColName[i];
         output += " = ";
         output += (string)(argv[i] ? argv[i] : "NULL");
@@ -24,7 +24,7 @@ static int callback(void* NotUsed, int argc, char** argv, char** azColName)
     return 0;
 }
 
-int write_recent_user(string name)
+int Database::write_recent_user(string name)
 {
     ofstream file;
     file.open("most-recent-user.txt");
@@ -33,7 +33,7 @@ int write_recent_user(string name)
     return 0;
 }
 
-string get_recent_user_name()
+string Database::get_recent_user_name()
 {
     ifstream infile("most-recent-user.txt");
 
@@ -48,7 +48,7 @@ string get_recent_user_name()
     return text;
 }
 
-int create_user_database(string player_name)
+int Database::create_user_database(string player_name)
 {
     sqlite3* db;
     char* zErrMsg = 0;
@@ -91,7 +91,7 @@ int create_user_database(string player_name)
     return 0;
 }
 
-string get_recent_user_db_filepath()
+string Database::get_recent_user_db_filepath()
 {
     char result[PATH_MAX];
     ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
@@ -104,7 +104,7 @@ string get_recent_user_db_filepath()
     return path;
 }
 
-int add_to_inventory(string itemName, string got)
+int Database::add_to_inventory(string itemName, string got)
 {
     // Add item to database
     string databaseName = get_recent_user_db_filepath();
@@ -150,13 +150,13 @@ int add_to_inventory(string itemName, string got)
     return 0;
 }
 
-int remove_from_inventory(string itemName)
+int Database::remove_from_inventory(string itemName)
 {
     // Remove item from database
     return 0;
 }
 
-bool do_i_have(string itemName)
+bool Database::do_i_have(string itemName)
 {
     sqlite3* db;
     char* zErrMsg = 0;

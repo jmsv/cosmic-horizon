@@ -17,13 +17,14 @@ int main()
     name = get_text(true);
     print("Hello, " + name + "!");
 
-    create_user_database(name);
+    Database db = Database();
+    db.create_user_database(name);
 
     // How to add item to inventory:
-    add_to_inventory("potato");
+    db.add_to_inventory("potato");
 
     // How to check if inventory contains something:
-    if (do_i_have("avocado")) {
+    if (db.do_i_have("avocado")) {
         print("you have an avocado  :D");
     } else {
         print("you do not have an avocado  :'(");

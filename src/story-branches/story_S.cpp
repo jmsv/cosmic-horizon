@@ -5,6 +5,9 @@
 #include <string>
 using namespace std;
 //your the captin now
+
+Database db_sS = Database();
+
 void now_captin()
 {
     print(".\n You gather the crew around and you tell them about your home planet", "green");
@@ -239,9 +242,9 @@ void join_them()
 
     if (choice == 1) {
 
-        add_to_inventory("Light saber");
+        db_sS.add_to_inventory("Light saber");
 
-        if (do_i_have("Light saber")) {
+        if (db_sS.do_i_have("Light saber")) {
             print("You now have a Light saber");
         } else {
             print("You do not have a Light saber");
@@ -252,9 +255,9 @@ void join_them()
     }
     if (choice == 2) {
 
-        add_to_inventory("Lazer_gun");
+        db_sS.add_to_inventory("Lazer_gun");
 
-        if (do_i_have("Lazer_gun")) {
+        if (db_sS.do_i_have("Lazer_gun")) {
             print("You now have a Lazer_gun");
         } else {
             print("You do not have a Lazer_gun");
