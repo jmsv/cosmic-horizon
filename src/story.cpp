@@ -24,7 +24,6 @@ void story_line_guns_blazeing()
 
 void story_line_stealth()
 {
-    print("\nYou managed to enter the space station through the garbage disposal unit\n", "green");
     start_story_D();
 }
 
