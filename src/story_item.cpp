@@ -10,10 +10,12 @@ vector<string> options;
 
 int StoryItem::run()
 {
+    print();
     if (this->preText.length() > 0) {
         print(this->preText, this->preTextColour);
     }
 
+    print();
     if (this->prompt.length() > 0) {
         print(this->prompt, "blue");
     }
@@ -23,6 +25,7 @@ int StoryItem::run()
         print(to_string(count) + ") " + *i);
         count += 1;
     }
+    print();
 
     return int_option(this->options.size());
 }

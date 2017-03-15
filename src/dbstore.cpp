@@ -137,13 +137,13 @@ int Database::add_to_inventory(string itemName, string got)
     if (rc != SQLITE_OK) {
         string zErrMsg_str = zErrMsg;
         if (zErrMsg_str == "UNIQUE constraint failed: INVENTORY.NAME") {
-            print(itemName + " already in database");
+            print("You already have a " + itemName + ".");
         } else {
             print(zErrMsg_str);
         }
         sqlite3_free(zErrMsg);
     } else {
-        print("Added " + itemName + " to database");
+        print("Added " + itemName + " to your inventory.");
     }
 
     sqlite3_close(db);

@@ -20,16 +20,6 @@ int main()
     Database db = Database();
     db.create_user_database(name);
 
-    // How to add item to inventory:
-    db.add_to_inventory("potato");
-
-    // How to check if inventory contains something:
-    if (db.do_i_have("avocado")) {
-        print("you have an avocado  :D");
-    } else {
-        print("you do not have an avocado  :'(");
-    }
-
     print("\nDo you want to play Cosmic Horizon? ");
     bool choice;
     choice = yes_or_no();
