@@ -74,10 +74,10 @@ int int_option(int max_digit)
 {
     string prompt = "Enter a value between 1 and " + to_string(max_digit) + ": ";
     print(prompt, "blue", false);
-    
+
     if (cin.peek() == '\n')
         cin.ignore();
-    
+
     bool valid_in = false;
     string stringIn = "-1";
     int answer;

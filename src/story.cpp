@@ -44,15 +44,15 @@ void find_lasergun()
 void repair_and_take_off()
 {
     StoryItem* repairAndTakeOffItem = new StoryItem();
-    
+
     print("\nYou go back and repair your ship and you're able to go in to orbit, hoping to find your space station.\n ", "green");
-    
+
     repairAndTakeOffItem->preText = "As you're exiting the atmosphere of the Gem-435-ini, in the distance you see your space station,\nbut there is already a ship docked. As you examine the ship thoroughly you come to the conclusion that\nthis ship is not anyone from Earth, so...";
-    
+
     repairAndTakeOffItem->preTextColour = "magenta";
-    
+
     repairAndTakeOffItem->prompt = "Do you:";
-    
+
     repairAndTakeOffItem->options = {
         "Attempt to dock elsewhere",
         "Leave your ship without docking and use you space suit to board silently",
@@ -73,15 +73,15 @@ void repair_and_take_off()
 void scavenge_for_supplies()
 {
     StoryItem* scavengeForSuppliesItem = new StoryItem();
-    
+
     print("You go into the first building and find carefully stashed protein rich molecular bars.", "green");
-    
+
     scavengeForSuppliesItem->preText = "After looking through other buildings trying to find something to survive you see something hidden behind\nan empty rocket fuel barrel. You move the barrel and see it's a space diagnostics examinator and a fully\nautomatic repair robot kit.\n";
-    
+
     scavengeForSuppliesItem->preTextColour = "magenta";
-    
+
     scavengeForSuppliesItem->prompt = "Do you:";
-    
+
     scavengeForSuppliesItem->options = {
         "Keep looking for supplies",
         "Rush to your ship"
@@ -101,13 +101,13 @@ void scavenge_for_supplies()
 void shout_for_help()
 {
     StoryItem* shoutForHelpItem = new StoryItem();
-    
+
     shoutForHelpItem->preText = "You yell for help, but there is no response.";
-    
+
     shoutForHelpItem->preTextColour = "green";
-    
+
     shoutForHelpItem->prompt = "Do you:";
-    
+
     shoutForHelpItem->options = {
         "Go back to your ship immediately",
         "Stay for the night",
@@ -130,13 +130,13 @@ void shout_for_help()
 void go_to_the_town()
 {
     StoryItem* goToTheTownItem = new StoryItem();
-    
+
     goToTheTownItem->preText = "You reach the town and see it has been abandoned.\nIt has a scary vibe and looked like it had been under attack at some point.";
-    
+
     goToTheTownItem->preTextColour = "green";
-    
+
     goToTheTownItem->prompt = "What do you do?";
-    
+
     goToTheTownItem->options = {
         "Have a look around quietly ",
         "Go back to your ship ",
@@ -157,23 +157,23 @@ void go_to_the_town()
 void explore_new_planet()
 {
     StoryItem* exploreNewPlanetItem = new StoryItem();
-    
+
     exploreNewPlanetItem->preText = "You get up and climb the capsule, so that you can examine the terrain around you.\nAfter staring in the distance for a while you spot a small town.";
-    
+
     exploreNewPlanetItem->preTextColour = "green";
-    
+
     exploreNewPlanetItem->prompt = "Do you go to the town?:";
-    
+
     exploreNewPlanetItem->options = {
         "Yes",
         "No"
     };
-    
+
     int choice = exploreNewPlanetItem->run();
-    
+
     if (choice == 1) {
         go_to_the_town();
-    } else if(choice == 2){
+    } else if (choice == 2) {
         print("\nYou stayed in the wrecked ship for 6 days before you starved to death", "red");
     }
 }
@@ -183,10 +183,10 @@ void start_story()
     StoryItem* startItem = new StoryItem();
 
     startItem->preText = "You wake up in an emergency space ejection capsule with a severe headache and empty stomach.\n"
-                   "The last thing you remember was prepairing your space station to maintain orbit around a hostile\n"
-                   "planet called Gem-435-ini. You don't remember how you ended up here, so you try to contact your\n"
-                   "space station but the coms in the capsule are broken. Left with no food and way to establish contact,\n"
-                   "with your crew members, you try to gather your thoughts and figure out how to get back up there.";
+                         "The last thing you remember was prepairing your space station to maintain orbit around a hostile\n"
+                         "planet called Gem-435-ini. You don't remember how you ended up here, so you try to contact your\n"
+                         "space station but the coms in the capsule are broken. Left with no food and way to establish contact,\n"
+                         "with your crew members, you try to gather your thoughts and figure out how to get back up there.";
 
     startItem->preTextColour = "magenta";
 
@@ -199,7 +199,7 @@ void start_story()
     };
 
     int choice = startItem->run();
-    
+
     if (choice == 1) {
         print("\nYou put a spike on the ground and climb on top of your ship. You jump and while you are falling you see a small town in the distance, but it's too late and you die.", "red");
     } else if (choice == 2) {

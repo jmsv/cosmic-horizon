@@ -1,9 +1,13 @@
 #include "../dbstore.h"
 #include "../print.h"
+#include "../story_item.h"
 #include "../userin.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
+
+Database db_sD = Database();
 
 void win_game()
 {
@@ -255,7 +259,22 @@ void go_inside()
 {
     print("\nYou go inside the storage unit.\n", "green");
     print("\nYou see an armour vest and a mini grenade launcher\n", "magenta");
-    print("Do you:");
+    db_sD.add_to_inventory("Armour vest");
+
+    if (db_sD.do_i_have("Armour vest")) {
+        print("You now have an Armour vest");
+    } else {
+        print("You do not have an Armour vest");
+    }
+
+    db_sD.add_to_inventory("Grenade launcher");
+
+    if (db_sD.do_i_have("Grenade launcher")) {
+        print("You now have an Grenade launcher");
+    } else {
+        print("You do not have an Grenade launcher");
+    }
+    print("\nDo you:");
     print("1) Look for your crew members");
     print("2) Find the other pirate crew members and eliminate them");
 
