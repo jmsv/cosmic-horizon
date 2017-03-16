@@ -214,6 +214,8 @@ void stealth_killstreak()
     stealthKillstreakItem->preText = "\nYou are now behind a group of space pirates, and spot a knife on the floor.";
     stealthKillstreakItem->preTextColour = "magenta";
 
+    //added knife to inventory
+    
     db_sD.add_to_inventory("Knife");
 
     if (db_sD.do_i_have("Knife")) {
@@ -267,6 +269,8 @@ void take_hostage()
 
 void crew_member_search_with_guns()
 {
+    //will show only if you have the armour and the grenade launcher
+    
     if (db_sD.do_i_have("Armour vest"), db_sD.do_i_have("Grenade launcher"))
 
     {
@@ -354,6 +358,8 @@ void go_inside()
     goInsideItem->preText = "\nYou see an armour vest and a mini grenade launcher\n";
     goInsideItem->preTextColour = "magenta";
 
+    //added armour to inventory
+    
     db_sD.add_to_inventory("Armour vest");
 
     if (db_sD.do_i_have("Armour vest")) {
@@ -362,6 +368,8 @@ void go_inside()
         print("You do not have an Armour vest");
     }
 
+    //added grenade launcher to inventory
+    
     db_sD.add_to_inventory("Grenade launcher");
 
     if (db_sD.do_i_have("Grenade launcher")) {
@@ -415,6 +423,8 @@ void hide_n_follow()
 
 void lazer_tag()
 {
+    //additional option (only shows if user has lazer gun and chooses option 4 in previous question)
+    
     StoryItem* lazerTagItem = new StoryItem();
 
     lazerTagItem->preText = "\nYou shoot the pirate in the head. You started roaming around your station and reach a storage unit\n";
@@ -440,9 +450,14 @@ void lazer_tag()
 
 void start_story_D()
 {
+    //check if Lazer gun is in inventory
+    
     if (db_sD.do_i_have("Lazer gun"))
 
     {
+        //only shows if player has found lazer gun
+        //create an Item
+        
         StoryItem* storyLineStealthItem = new StoryItem();
 
         storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
@@ -457,6 +472,8 @@ void start_story_D()
 
         int choice = storyLineStealthItem->run();
 
+        //different choices
+        
         if (choice == 1) {
             print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
         }
@@ -471,6 +488,9 @@ void start_story_D()
             lazer_tag();
         }
     } else {
+        
+        //only shows if player hasn't found lazer gun
+        
         StoryItem* storyLineStealthItem = new StoryItem();
 
         storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
