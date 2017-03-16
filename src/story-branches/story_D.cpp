@@ -387,30 +387,85 @@ void hide_n_follow()
         crew_member_search();
     }
 }
-
-void start_story_D()
+void lazer_tag()
 {
-    StoryItem* storyLineStealthItem = new StoryItem();
+    StoryItem* lazerTagItem = new StoryItem();
 
-    storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit\n";
-    storyLineStealthItem->preTextColour = "green";
-    storyLineStealthItem->prompt = "What do you do? ";
-    storyLineStealthItem->options = {
-        "Hide",
-        "Hide and follow ",
-        "Attempt stealth kill"
+    lazerTagItem->preText = "\nYou shoot the pirate in the head. You started roaming around your station and reach a storage unit\n";
+    lazerTagItem->preTextColour = "green";
+    lazerTagItem->prompt = "Do you:";
+    lazerTagItem->options = {
+        "Go inside",
+        "Keep going to find the other pirate crew members",
+        "Look for your crew members"
     };
-
-    int choice = storyLineStealthItem->run();
+    int choice = lazerTagItem->run();
 
     if (choice == 1) {
-        print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+        go_inside();
     }
     if (choice == 2) {
-        hide_n_follow();
+        print("You end up at the food court and for a moment you stare at the other pirates and you get casually shot in the head", "red");
     }
     if (choice == 3) {
-        print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
-        print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
+        crew_member_search();
+    }
+}
+void start_story_D()
+{
+    if (db_sD.do_i_have("Lazer gun"))
+
+    {
+        StoryItem* storyLineStealthItem = new StoryItem();
+
+        storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
+        storyLineStealthItem->preTextColour = "green";
+        storyLineStealthItem->prompt = "What do you do? ";
+        storyLineStealthItem->options = {
+            "Hide",
+            "Hide and follow ",
+            "Attempt stealth kill",
+            "Shoot with Lazer gun"
+        };
+
+        int choice = storyLineStealthItem->run();
+
+        if (choice == 1) {
+            print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+        }
+        if (choice == 2) {
+            hide_n_follow();
+        }
+        if (choice == 3) {
+            print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
+            print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
+        }
+        if (choice == 4) {
+            lazer_tag();
+        } else {
+            StoryItem* storyLineStealthItem = new StoryItem();
+
+            storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
+            storyLineStealthItem->preTextColour = "green";
+            storyLineStealthItem->prompt = "What do you do? ";
+            storyLineStealthItem->options = {
+                "Hide",
+                "Hide and follow ",
+                "Attempt stealth kill"
+            };
+
+            int choice = storyLineStealthItem->run();
+
+            if (choice == 1) {
+                print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+            }
+            if (choice == 2) {
+                hide_n_follow();
+            }
+            if (choice == 3) {
+                print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
+                print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
+            }
+        }
     }
 }
