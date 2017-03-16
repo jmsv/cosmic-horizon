@@ -19,6 +19,7 @@ void win_game()
         "magenta");
     print("\n THE END \n", "cyan");
 }
+
 void mad_man_hands()
 {
     StoryItem* madManHandsItem = new StoryItem();
@@ -41,6 +42,7 @@ void mad_man_hands()
         print("A pirate who almost died managed to yell before you got in the control unit and the captain had time to welcome you with a mini-gun", "red");
     }
 }
+
 void mad_man()
 {
     StoryItem* madManItem = new StoryItem();
@@ -63,6 +65,7 @@ void mad_man()
         print("A pirate who almost died managed to yell before you got in the control unit and the captain had time to welcome you with a mini-gun", "red");
     }
 }
+
 void adrenaline_shot()
 {
     StoryItem* adrenalineShotItem = new StoryItem();
@@ -85,6 +88,7 @@ void adrenaline_shot()
         mad_man_hands();
     }
 }
+
 void kill_crew()
 {
     StoryItem* killCrewItem = new StoryItem();
@@ -111,6 +115,7 @@ void kill_crew()
         print("You thouth you were good enough to use a knife to kill everybody... big mistake", "red");
     }
 }
+
 void intel_plan()
 {
     StoryItem* intelPlanItem = new StoryItem();
@@ -133,6 +138,7 @@ void intel_plan()
         kill_crew();
     }
 }
+
 void stealth_and_die()
 {
     StoryItem* stealthAndDieItem = new StoryItem();
@@ -153,6 +159,7 @@ void stealth_and_die()
         print("You tried to be like Rambo... unsuccessfully", "red");
     }
 }
+
 void proceed_kill()
 {
     StoryItem* proceedKillItem = new StoryItem();
@@ -175,6 +182,7 @@ void proceed_kill()
         print("You trip and fall from the smoke and when you try to get up you get a knife in your spine", "red");
     }
 }
+
 void double_kill()
 {
     StoryItem* doubleKillItem = new StoryItem();
@@ -197,6 +205,7 @@ void double_kill()
         proceed_kill();
     }
 }
+
 void stealth_killstreak()
 {
     StoryItem* stealthKillstreakItem = new StoryItem();
@@ -204,6 +213,15 @@ void stealth_killstreak()
     print("\nYou chose to continue stealth approach\n", "green");
     stealthKillstreakItem->preText = "\nYou are now behind a group of space pirates, and spot a knife on the floor.";
     stealthKillstreakItem->preTextColour = "magenta";
+
+    db_sD.add_to_inventory("Knife");
+
+    if (db_sD.do_i_have("Knife")) {
+        print("You now have an Knife");
+    } else {
+        print("You do not have an Knife");
+    }
+
     stealthKillstreakItem->prompt = "Do you:";
     stealthKillstreakItem->options = {
         "Stab the closest to you in the leg",
@@ -249,30 +267,35 @@ void take_hostage()
 
 void crew_member_search_with_guns()
 {
-    StoryItem* crewMemberSearchWithGunsItem = new StoryItem();
+    if (db_sD.do_i_have("Armour vest"), db_sD.do_i_have("Grenade launcher"))
 
-    print("\nNow that you have supplies you go search for your crew\n", "green");
-    crewMemberSearchWithGunsItem->preText = "\nAs you are lurking around your space station you spot a group of space pirates";
-    crewMemberSearchWithGunsItem->preTextColour = "magenta";
-    crewMemberSearchWithGunsItem->prompt = "Do you:";
-    crewMemberSearchWithGunsItem->options = {
-        "Shoot with grenade launcher",
-        "Sneak behind them and take a hostage",
-        "Continue stealth approach"
-    };
+    {
+        StoryItem* crewMemberSearchWithGunsItem = new StoryItem();
 
-    int choice = crewMemberSearchWithGunsItem->run();
+        print("\nNow that you have supplies you go search for your crew\n", "green");
+        crewMemberSearchWithGunsItem->preText = "\nAs you are lurking around your space station you spot a group of space pirates";
+        crewMemberSearchWithGunsItem->preTextColour = "magenta";
+        crewMemberSearchWithGunsItem->prompt = "Do you:";
+        crewMemberSearchWithGunsItem->options = {
+            "Shoot with grenade launcher",
+            "Sneak behind them and take a hostage",
+            "Continue stealth approach"
+        };
 
-    if (choice == 1) {
-        print("When you shoot you don't take cover and fly back from the impact wave causing you to break your spine and die in pain");
-    }
-    if (choice == 2) {
-        take_hostage();
-    }
-    if (choice == 3) {
-        stealth_killstreak();
+        int choice = crewMemberSearchWithGunsItem->run();
+
+        if (choice == 1) {
+            print("When you shoot you don't take cover and fly back from the impact wave causing you to break your spine and die in pain");
+        }
+        if (choice == 2) {
+            take_hostage();
+        }
+        if (choice == 3) {
+            stealth_killstreak();
+        }
     }
 }
+
 void badass_for_a_moment()
 {
     StoryItem* badassForAmomentItem = new StoryItem();
@@ -295,6 +318,7 @@ void badass_for_a_moment()
         print("You say HI and are welcomed by a flock of bullets.", "red");
     }
 }
+
 void crew_member_search()
 {
     StoryItem* crewMemberSearchItem = new StoryItem();
@@ -321,6 +345,7 @@ void crew_member_search()
         print("No questions asked. You get shot multiple times in the head.", "red");
     }
 }
+
 void go_inside()
 {
     StoryItem* goInsideItem = new StoryItem();
@@ -387,6 +412,7 @@ void hide_n_follow()
         crew_member_search();
     }
 }
+
 void lazer_tag()
 {
     StoryItem* lazerTagItem = new StoryItem();
@@ -411,6 +437,7 @@ void lazer_tag()
         crew_member_search();
     }
 }
+
 void start_story_D()
 {
     if (db_sD.do_i_have("Lazer gun"))
@@ -442,30 +469,30 @@ void start_story_D()
         }
         if (choice == 4) {
             lazer_tag();
-        } else {
-            StoryItem* storyLineStealthItem = new StoryItem();
+        }
+    } else {
+        StoryItem* storyLineStealthItem = new StoryItem();
 
-            storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
-            storyLineStealthItem->preTextColour = "green";
-            storyLineStealthItem->prompt = "What do you do? ";
-            storyLineStealthItem->options = {
-                "Hide",
-                "Hide and follow ",
-                "Attempt stealth kill"
-            };
+        storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
+        storyLineStealthItem->preTextColour = "green";
+        storyLineStealthItem->prompt = "What do you do? ";
+        storyLineStealthItem->options = {
+            "Hide",
+            "Hide and follow ",
+            "Attempt stealth kill"
+        };
 
-            int choice = storyLineStealthItem->run();
+        int choice = storyLineStealthItem->run();
 
-            if (choice == 1) {
-                print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
-            }
-            if (choice == 2) {
-                hide_n_follow();
-            }
-            if (choice == 3) {
-                print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
-                print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
-            }
+        if (choice == 1) {
+            print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+        }
+        if (choice == 2) {
+            hide_n_follow();
+        }
+        if (choice == 3) {
+            print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
+            print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
         }
     }
 }
