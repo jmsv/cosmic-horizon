@@ -69,17 +69,13 @@ void fuel_found()
 }
 */
 
-void ship_gone
+void ship_gone()
 {
-    
 }
-
 
 void fuel_found()
 {
-    
 }
-
 
 void found_help()
 {
