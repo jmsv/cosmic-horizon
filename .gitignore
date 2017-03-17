@@ -1,6 +1,7 @@
 # Cosmic Horizon stuff
 most-recent-user.txt
 compile.sh
+save-*.db
 
 # Compiled Object files
 *.slo
