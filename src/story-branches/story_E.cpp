@@ -73,7 +73,7 @@ void lock_doors()
         print("As soon as the doors open. you get shot in the face");
     }
 }
-// Escaping in vents 
+// Escaping in vents
 void vents()
 {
     StoryItem* VentsItem = new StoryItem();
@@ -172,7 +172,7 @@ void attack_pirate()
         print("The cafeteria is filled with pirates eating lunch and they open fire on you");
     }
 }
-// boarding the station 
+// boarding the station
 void board_station()
 {
     StoryItem* BoardStationItem = new StoryItem();
@@ -198,7 +198,7 @@ void board_station()
         db_sE.add_to_inventory("Pistol");
         // Makes sure that there is a pistol in the players inventory
         if (db_sE.do_i_have("Pistol")) {
-            print("You struggle with the pirate but manage to shoot him with his own gun"); // 
+            print("You struggle with the pirate but manage to shoot him with his own gun"); //
         } else {
             print("You struggle with the pirate");
         }
