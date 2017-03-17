@@ -6,6 +6,8 @@
 #include <string>
 using namespace std;
 
+Database db_sE = Database();
+
 void Clear_Station()
 {
     print("hello");
@@ -151,7 +153,6 @@ void attack_pirate()
 {
     StoryItem* AttackPirateItem = new StoryItem();
     AttackPirateItem->preText = ".\n You attack the pirate and manage to kill him, then search his body for useful items", "green"
-                                                                                                                           ".\n You take the pirates sidearm to defend yourself with"
                                                                                                                            ".\n You check the map again and decide which part of the station to go to";
     AttackPirateItem->preTextColour = "magenta";
     AttackPirateItem->prompt = "Do you?";
@@ -193,6 +194,14 @@ void board_station()
     } else if (choice == 2) {
         print(".\n The pirate notices you hiding and shoots you");
     } else if (choice == 3) {
+
+        db_sE.add_to_inventory("Pistol");
+
+        if (db_sE.do_i_have("Pistol")) {
+            print("You struggle with the pirate but manage to shoot him with his own gun");
+        } else {
+            print("You struggle with the pirate");
+        }
         attack_pirate();
     }
 }
