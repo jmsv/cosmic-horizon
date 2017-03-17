@@ -29,10 +29,13 @@ void story_line_stealth()
 
 void find_lasergun()
 {
+    // Player has found a lazer gun
     print("\nYou find a laser gun with rechargeable ammo\n", "green");
 
+    // Lazer gun is added to the user's inventory via a database method
     db_s.add_to_inventory("Lazer gun");
 
+    // Another method is used to check that there is now a lazer gun in the inventory
     if (db_s.do_i_have("Lazer gun")) {
         print("You now have a Lazer gun");
     } else {
