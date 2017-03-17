@@ -6,8 +6,9 @@
 #include <string>
 using namespace std;
 
-Database db_sE = Database();
+Database db_sL = Database();
 
+void start_L();
 void discovering_base();
 void patrol_unit();
 void drone();
@@ -15,20 +16,22 @@ void discovering_ship();
 void kidnap();
 void newstory();
 void newstory2();
+
+void start_L()
 {
-	StoryItem* start_LItem = new StoryItem();
+    StoryItem* start_LItem = new StoryItem();
     //Start 1.0
-    start_LItemItem->preText = "You see a distant gleam of metal not so far from where you are. a\n";
-    start_LItemItem->preText = "As you make your way towards it you realise it is part of a massive group of structures";
-    start_LItemItem->preTextColour = "magenta";
-    start_LItemItem->preText = "You wonder what plan you should go with now.", "Magenta";
-    start_LItemItem->prompt = "Do you:";
-    start_LItemItem->options = {
-		"1. Sneak towards the buildings",
+    start_LItem->preText = "You see a distant gleam of metal not so far from where you are.";
+    start_LItem->preText = "As you make your way towards it you realise it is part of a massive group of structures";
+    start_LItem->preTextColour = "magenta";
+    start_LItem->preText = "You wonder what plan you should go with now.", "Magenta";
+    start_LItem->prompt = "Do you:";
+    start_LItem->options = {
+        "1. Sneak towards the buildings",
         "2. Hide where you are and wait for movement from the buildings",
         "3. Make your way back to the ship to gather supplies"
     };
-	int choice = start_LItem->run();
+    int choice = start_LItem->run();
 
     if (choice == 1) {
         discovering_base();
@@ -41,30 +44,31 @@ void newstory2();
 
 void discovering_base()
 {
-	StoryItem* discovering_baseItem = new StoryItem();
+    StoryItem* start_discovering_baseItem = new StoryItem();
     //start user exploring the base
-    start_discovering_baseItem->preText = "You make your way towards the base while keeping an eye out for any movement. a\n";
+    start_discovering_baseItem->preText = "You make your way towards the base while keeping an eye out for any movement.";
     start_discovering_baseItem->preText = "While sneaking into the base you see figures swiftly walking nearby.";
     start_discovering_baseItem->preText = "You are curious about where they are going.", "Magenta";
-    start_LItemItem->prompt = "Do you:";
-    start_LItemItem->options = {
-		"1. Attack the guards",
+    start_discovering_baseItem->prompt = "Do you:";
+    start_discovering_baseItem->options = {
+        "1. Attack the guards",
         "2. Sneak in the other direction",
         "3. Silently follow the guards"
     };
     print("1. Attack the guards", "Blue");
     print("2. Sneak in the other direction", "Blue");
     print("3. Silently follow the guards", "Blue");
-	int choice = discovering_baseItem->run();
+
+    int choice = start_discovering_baseItem->run();
 
     if (choice == 1) {
         print("The guards overpower you and wrestle you to the ground. After a short struggle you get knocked out");
         kidnap();
     } else if (choice == 2) {
-        print("The guards hear you and chase you down before knocking you out")
+        print("The guards hear you and chase you down before knocking you out");
         kidnap();
     } else if (choice == 3) {
-		print("You are not as silent as you think you are and the guards hear you, they catch you and knock you out")
+        print("You are not as silent as you think you are and the guards hear you, they catch you and knock you out");
         kidnap();
     }
 }
