@@ -22,7 +22,7 @@ void Start_Attack()
 {
     print("hello");
 }
-
+// attacking pirates
 void Attack_pirates()
 {
     StoryItem* AttackPirateItem = new StoryItem();
@@ -49,7 +49,7 @@ void Attack_pirates()
         print("The pirates throw a grenade on the room killing you");
     }
 }
-
+// locking armory doors
 void lock_doors()
 {
     StoryItem* LockDoorsItem = new StoryItem();
@@ -73,7 +73,7 @@ void lock_doors()
         print("As soon as the doors open. you get shot in the face");
     }
 }
-
+// Escaping in vents 
 void vents()
 {
     StoryItem* VentsItem = new StoryItem();
@@ -98,7 +98,7 @@ void vents()
         print("The pirates kill you on sight");
     }
 }
-
+// killing pirates
 void kill_pirates()
 {
     StoryItem* KillPiratesItem = new StoryItem();
@@ -123,7 +123,7 @@ void kill_pirates()
         print("The pirates shoot you on sight killing you");
     }
 }
-
+// Finding the armory
 void armory()
 {
     StoryItem* ArmoryItem = new StoryItem();
@@ -148,7 +148,7 @@ void armory()
         vents();
     }
 }
-
+// Attacking the pirate
 void attack_pirate()
 {
     StoryItem* AttackPirateItem = new StoryItem();
@@ -172,7 +172,7 @@ void attack_pirate()
         print("The cafeteria is filled with pirates eating lunch and they open fire on you");
     }
 }
-
+// boarding the station 
 void board_station()
 {
     StoryItem* BoardStationItem = new StoryItem();
@@ -194,18 +194,18 @@ void board_station()
     } else if (choice == 2) {
         print(".\n The pirate notices you hiding and shoots you");
     } else if (choice == 3) {
-
+        // Pistol is added to the database, in the users inventory
         db_sE.add_to_inventory("Pistol");
-
+        // Makes sure that there is a pistol in the players inventory
         if (db_sE.do_i_have("Pistol")) {
-            print("You struggle with the pirate but manage to shoot him with his own gun");
+            print("You struggle with the pirate but manage to shoot him with his own gun"); // 
         } else {
             print("You struggle with the pirate");
         }
         attack_pirate();
     }
 }
-
+// Guns Blazing start
 void start_story_E()
 {
     StoryItem* startStoryItem = new StoryItem();
