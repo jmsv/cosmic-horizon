@@ -3,13 +3,16 @@
 #include "story-branches/story_B.h"
 #include "story-branches/story_D.h"
 #include "story-branches/story_E.h"
-#include "story-branches/story_J.h"
 #include "story-branches/story_L.h"
 #include "story-branches/story_S.h"
+#include "story_item.h"
 #include "userin.h"
 #include <iostream>
 #include <string>
 using namespace std;
+
+Database db_s = Database();
+
 void story_join_pirates()
 {
     start_story_S();
@@ -21,17 +24,19 @@ void story_line_guns_blazeing()
 
 void story_line_stealth()
 {
-    print("\nYou managed to enter the space station through the garbage disposal unit\n", "green");
     start_story_D();
 }
 
 void find_lasergun()
 {
+    // Player has found a lazer gun
     print("\nYou find a laser gun with rechargeable ammo\n", "green");
 
-    add_to_inventory("Lazer gun");
+    // Lazer gun is added to the user's inventory via a database method
+    db_s.add_to_inventory("Lazer gun");
 
-    if (do_i_have("Lazer gun")) {
+    // Another method is used to check that there is now a lazer gun in the inventory
+    if (db_s.do_i_have("Lazer gun")) {
         print("You now have a Lazer gun");
     } else {
         print("You do not have a Lazer gun");
@@ -40,17 +45,23 @@ void find_lasergun()
 
 void repair_and_take_off()
 {
-    print("\nYou go back and repair your ship and you're able to go in to orbit, hoping to find your space station.\n ", "green");
-    print("\nAs you're exiting the atmosphere of the Gem-435-ini, in the distance you see your space station, \n"
-          "but there is already a ship docked. As you examine the ship thoroughly you come to the conclusion that\n"
-          "this ship is not anyone from Earth, so...\n",
-        "magenta");
-    print("Do you:");
-    print("1) Attempt to dock else where ");
-    print("2) Leave your ship without docking and use you space suit to board silently");
-    print("3) Attempt to contact who ever is aboard");
+    StoryItem* repairAndTakeOffItem = new StoryItem();
 
-    int choice = int_option(3);
+    print("\nYou go back and repair your ship and you're able to go in to orbit, hoping to find your space station.\n ", "green");
+
+    repairAndTakeOffItem->preText = "As you're exiting the atmosphere of the Gem-435-ini, in the distance you see your space station,\nbut there is already a ship docked. As you examine the ship thoroughly you come to the conclusion that\nthis ship is not anyone from Earth, so...";
+
+    repairAndTakeOffItem->preTextColour = "magenta";
+
+    repairAndTakeOffItem->prompt = "Do you:";
+
+    repairAndTakeOffItem->options = {
+        "Attempt to dock elsewhere",
+        "Leave your ship without docking and use you space suit to board silently",
+        "Attempt to contact who ever is aboard"
+    };
+
+    int choice = repairAndTakeOffItem->run();
 
     if (choice == 1) {
         story_line_guns_blazeing();
@@ -63,17 +74,22 @@ void repair_and_take_off()
 
 void scavenge_for_supplies()
 {
-    print("\nYou go into the first building and find carefully stashed protein rich molecular bars.\n", "green");
+    StoryItem* scavengeForSuppliesItem = new StoryItem();
 
-    print("After looking through other buildings trying to find something to survive you see something hidden behind\n"
-          "an empty rocket fuel barrel. You move the barrel and see it's a space diagnostics examinator and a fully\n"
-          "automatic repair robot kit.\n",
-        "magenta");
-    print("Do you:");
-    print("1) Keep looking for supplies");
-    print("2) Rush to your ship");
+    print("You go into the first building and find carefully stashed protein rich molecular bars.", "green");
 
-    int choice = int_option(2);
+    scavengeForSuppliesItem->preText = "After looking through other buildings trying to find something to survive you see something hidden behind\nan empty rocket fuel barrel. You move the barrel and see it's a space diagnostics examinator and a fully\nautomatic repair robot kit.\n";
+
+    scavengeForSuppliesItem->preTextColour = "magenta";
+
+    scavengeForSuppliesItem->prompt = "Do you:";
+
+    scavengeForSuppliesItem->options = {
+        "Keep looking for supplies",
+        "Rush to your ship"
+    };
+
+    int choice = scavengeForSuppliesItem->run();
 
     if (choice == 1) {
         find_lasergun();
@@ -86,15 +102,21 @@ void scavenge_for_supplies()
 
 void shout_for_help()
 {
-    print("\nYou yell for help, but there is  no responce.", "green");
+    StoryItem* shoutForHelpItem = new StoryItem();
 
-    print("\nYou find some leftover food and repairing tool kit.\n", "green");
-    print("Do you:");
-    print("1) Go back to your ship immediately");
-    print("2) Stay for the night");
-    print("3) Call again for help");
+    shoutForHelpItem->preText = "You yell for help, but there is no response.";
 
-    int answer = int_option(3);
+    shoutForHelpItem->preTextColour = "green";
+
+    shoutForHelpItem->prompt = "Do you:";
+
+    shoutForHelpItem->options = {
+        "Go back to your ship immediately",
+        "Stay for the night",
+        "Call again for help"
+    };
+
+    int answer = shoutForHelpItem->run();
 
     if (answer == 1) {
         repair_and_take_off();
@@ -109,15 +131,21 @@ void shout_for_help()
 
 void go_to_the_town()
 {
-    print("\nYou reach the town and see it has been abandoned. It has a scary vibe and looked like\n"
-          "it had been under attack at some point.\n",
-        "green");
-    print("What do you do?");
-    print("1) Have a look around quietly ");
-    print("2) Go back to your ship ");
-    print("3) Shout for help");
+    StoryItem* goToTheTownItem = new StoryItem();
 
-    int choice = int_option(3);
+    goToTheTownItem->preText = "You reach the town and see it has been abandoned.\nIt has a scary vibe and looked like it had been under attack at some point.";
+
+    goToTheTownItem->preTextColour = "green";
+
+    goToTheTownItem->prompt = "What do you do?";
+
+    goToTheTownItem->options = {
+        "Have a look around quietly ",
+        "Go back to your ship ",
+        "Shout for help"
+    };
+
+    int choice = goToTheTownItem->run();
 
     if (choice == 1) {
         scavenge_for_supplies();
@@ -130,34 +158,49 @@ void go_to_the_town()
 
 void explore_new_planet()
 {
-    print("\nYou get up and climb the capsule, so that you can examine the terrain around you.\n"
-          "After staring in the distance for a while you spot a small town.\n",
-        "green");
-    print("Do you go to the town?: ");
-    bool choice;
-    choice = yes_or_no();
+    StoryItem* exploreNewPlanetItem = new StoryItem();
 
-    if (choice) {
+    exploreNewPlanetItem->preText = "You get up and climb the capsule, so that you can examine the terrain around you.\nAfter staring in the distance for a while you spot a small town.";
+
+    exploreNewPlanetItem->preTextColour = "green";
+
+    exploreNewPlanetItem->prompt = "Do you go to the town?:";
+
+    exploreNewPlanetItem->options = {
+        "Yes",
+        "No"
+    };
+
+    int choice = exploreNewPlanetItem->run();
+
+    if (choice == 1) {
         go_to_the_town();
-    } else {
+    } else if (choice == 2) {
         print("\nYou stayed in the wrecked ship for 6 days before you starved to death", "red");
     }
 }
 
 void start_story()
 {
-    print("You wake up in an emergency space ejection capsule with a severe headache and empty stomach.\n"
-          "The last thing you remember was prepairing your space station to maintain orbit around a hostile\n"
-          "planet called Gem-435-ini. You don't remember how you ended up here, so you try to contact your\n"
-          "space station but the coms in the capsule are broken. Left with no food and way to establish contact\n"
-          "with your crew members, you try to gather your thoughts and figure out how to get back up there.\n",
-        "magenta");
-    print("What do you do?");
-    print("1) Kill yourself");
-    print("2) Get up and explore");
-    print("3) Stay in the wrecked ship and wait for help");
+    StoryItem* startItem = new StoryItem();
 
-    int choice = int_option(3);
+    startItem->preText = "You wake up in an emergency space ejection capsule with a severe headache and empty stomach.\n"
+                         "The last thing you remember was prepairing your space station to maintain orbit around a hostile\n"
+                         "planet called Gem-435-ini. You don't remember how you ended up here, so you try to contact your\n"
+                         "space station but the coms in the capsule are broken. Left with no food and way to establish contact,\n"
+                         "with your crew members, you try to gather your thoughts and figure out how to get back up there.";
+
+    startItem->preTextColour = "magenta";
+
+    startItem->prompt = "What do you do?";
+
+    startItem->options = {
+        "Kill yourself", // 1
+        "Get up and explore", // 2
+        "Stay in the wrecked ship and wait for help" // 3
+    };
+
+    int choice = startItem->run();
 
     if (choice == 1) {
         print("\nYou put a spike on the ground and climb on top of your ship. You jump and while you are falling you see a small town in the distance, but it's too late and you die.", "red");

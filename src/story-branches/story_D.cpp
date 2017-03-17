@@ -1,9 +1,13 @@
 #include "../dbstore.h"
 #include "../print.h"
+#include "../story_item.h"
 #include "../userin.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
+
+Database db_sD = Database();
 
 void win_game()
 {
@@ -15,14 +19,21 @@ void win_game()
         "magenta");
     print("\n THE END \n", "cyan");
 }
+
 void mad_man_hands()
 {
-    print("\nYou decided to eliminate the pirates with your bare hands\n", "green");
-    print("\nThe adrenaline made you insane and you went into a killstreak like Rambo. 15 minutes later after you have broken more than 60 necks. Do : ", "magenta");
-    print("1) You go to the captain and kill him no questions asked");
-    print("2) You go to the captain and find out if he has allies");
+    StoryItem* madManHandsItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou decided to eliminate the pirates with your bare hands\n", "green");
+    madManHandsItem->preText = "\nThe adrenaline made you insane and you went into a killstreak like Rambo. 15 minutes later after you have broken more than 60 necks.";
+    madManHandsItem->preTextColour = "magenta";
+    madManHandsItem->prompt = "Do you:";
+    madManHandsItem->options = {
+        "Go to the captain and kill him no questions asked",
+        "Go to the captain and find out if he has allies"
+    };
+
+    int choice = madManHandsItem->run();
 
     if (choice == 1) {
         win_game();
@@ -31,14 +42,21 @@ void mad_man_hands()
         print("A pirate who almost died managed to yell before you got in the control unit and the captain had time to welcome you with a mini-gun", "red");
     }
 }
+
 void mad_man()
 {
-    print("\nYou got out your knife and rushed on to the deck\n", "green");
-    print("\nThe adrenaline made you insane and you went into a killstreak like Logan. After 15 minutes you killed more than 60 pirates, the majority of them decaputated. Do : ", "magenta");
-    print("1) You go the captain and kill him no questions asked");
-    print("2) You go to the captain and find out if he has allies");
+    StoryItem* madManItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou got out your knife and rushed on to the deck\n", "green");
+    madManItem->preText = "\nThe adrenaline made you insane and you went into a killstreak like Logan. After 15 minutes you killed more than 60 pirates, the majority of them decaputated.";
+    madManItem->preTextColour = "magenta";
+    madManItem->prompt = "Do you:";
+    madManItem->options = {
+        "Go the captain and kill him no questions asked",
+        "Go to the captain and find out if he has allies"
+    };
+
+    int choice = madManItem->run();
 
     if (choice == 1) {
         win_game();
@@ -47,15 +65,21 @@ void mad_man()
         print("A pirate who almost died managed to yell before you got in the control unit and the captain had time to welcome you with a mini-gun", "red");
     }
 }
+
 void adrenaline_shot()
 {
-    print("\nYou injected an adrenaline shot in your neck\n", "green");
-    print("\nYou waited for the adrenaline to take over your body and become almost invincible", "magenta");
-    print("Do you:");
-    print("1) Use a knife");
-    print("2) Use your hands");
+    StoryItem* adrenalineShotItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou injected an adrenaline shot in your neck\n", "green");
+    adrenalineShotItem->preText = "\nYou waited for the adrenaline to take over your body and become almost invincible";
+    adrenalineShotItem->preTextColour = "magenta";
+    adrenalineShotItem->prompt = "Do you:";
+    adrenalineShotItem->options = {
+        "Use a knife",
+        "Use your hands"
+    };
+
+    int choice = adrenalineShotItem->run();
 
     if (choice == 1) {
         mad_man();
@@ -64,16 +88,22 @@ void adrenaline_shot()
         mad_man_hands();
     }
 }
+
 void kill_crew()
 {
-    print("\nYou choose to kill the crew first and then the captain\n", "green");
-    print("\nYou go to the main deck where all the pirates are", "magenta");
-    print("Do you:");
-    print("1) Take adrenaline shot");
-    print("2) Deploy grenades");
-    print("3) Knife");
+    StoryItem* killCrewItem = new StoryItem();
 
-    int choice = int_option(3);
+    print("\nYou choose to kill the crew first and then the captain\n", "green");
+    killCrewItem->preText = "\nYou go to the main deck where all the pirates are";
+    killCrewItem->preTextColour = "magenta";
+    killCrewItem->prompt = "Do you:";
+    killCrewItem->options = {
+        "Take adrenaline shot",
+        "Deploy grenades",
+        "Knife"
+    };
+
+    int choice = killCrewItem->run();
 
     if (choice == 1) {
         adrenaline_shot();
@@ -85,15 +115,21 @@ void kill_crew()
         print("You thouth you were good enough to use a knife to kill everybody... big mistake", "red");
     }
 }
+
 void intel_plan()
 {
-    print("\nYou decided to interogate the last pirate of the group\n", "green");
-    print("\nYou find out that the captain just ordered to kill all your crew members because he found out you were on board. Out of anger you just snaped the pirates neck.You found an adrenaline shot in his pocket and you took it", "magenta");
-    print("Do you");
-    print("1) Go to the captain");
-    print("2) Kill the whole crew on the ship first and enjoy killing the captain");
+    StoryItem* intelPlanItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou decided to interogate the last pirate of the group\n", "green");
+    intelPlanItem->preText = "\nYou find out that the captain just ordered to kill all your crew members because he found out you were on board. Out of anger you just snaped the pirates neck.You found an adrenaline shot in his pocket and you took it";
+    intelPlanItem->preTextColour = "magenta";
+    intelPlanItem->prompt = "Do you";
+    intelPlanItem->options = {
+        "Go to the captain",
+        "Kill the whole crew on the ship first and enjoy killing the captain"
+    };
+
+    int choice = intelPlanItem->run();
 
     if (choice == 1) {
         print("You were foolish to give in to your emotions and are welcomed by a flock of bullets in front of the captains door", "red");
@@ -102,14 +138,19 @@ void intel_plan()
         kill_crew();
     }
 }
+
 void stealth_and_die()
 {
-    print("\nYou decided to eliminate the pirates quietly\n", "green");
-    print("\nYour only options are:", "magenta");
-    print("1) Knife");
-    print("2) Hands");
+    StoryItem* stealthAndDieItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou decided to eliminate the pirates quietly\n", "green");
+    stealthAndDieItem->prompt = "\nYour only options are:";
+    stealthAndDieItem->options = {
+        "Knife",
+        "Hands"
+    };
+
+    int choice = stealthAndDieItem->run();
 
     if (choice == 1) {
         print("You were stupid to think you could kill everybody by yourself", "red");
@@ -118,15 +159,21 @@ void stealth_and_die()
         print("You tried to be like Rambo... unsuccessfully", "red");
     }
 }
+
 void proceed_kill()
 {
-    print("\nYou killed the last one of the group\n", "green");
-    print("\nAfter you loot the bodies, you found a bigger knife and smoke grenade. Few minutes later you hear another group approaching", "magenta");
-    print("Do you:");
-    print("1) Continue stealth approach");
-    print("2) Throw smoke and go in guns blazing");
+    StoryItem* proceedKillItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou killed the last one of the group\n", "green");
+    proceedKillItem->preText = "\nAfter you loot the bodies, you found a bigger knife and smoke grenade. Few minutes later you hear another group approaching";
+    proceedKillItem->preTextColour = "magenta";
+    proceedKillItem->prompt = "Do you:";
+    proceedKillItem->options = {
+        "Continue stealth approach",
+        "Throw smoke and go in guns blazing"
+    };
+
+    int choice = proceedKillItem->run();
 
     if (choice == 1) {
         stealth_and_die();
@@ -135,15 +182,21 @@ void proceed_kill()
         print("You trip and fall from the smoke and when you try to get up you get a knife in your spine", "red");
     }
 }
+
 void double_kill()
 {
-    print("\nYou slit the throat of the closest to you crew member\n", "green");
-    print("\nYou sneak and stealth kill 2 more of the pirates and only the last one from the group is left ", "magenta");
-    print("Do you:");
-    print("1) Interogate and kill");
-    print("2) Kill");
+    StoryItem* doubleKillItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou slit the throat of the closest to you crew member\n", "green");
+    doubleKillItem->preText = "\nYou sneak and stealth kill 2 more of the pirates and only the last one from the group is left ";
+    doubleKillItem->preTextColour = "magenta";
+    doubleKillItem->prompt = "Do you:";
+    doubleKillItem->options = {
+        "Interogate and kill",
+        "Kill"
+    };
+
+    int choice = doubleKillItem->run();
 
     if (choice == 1) {
         intel_plan();
@@ -152,16 +205,33 @@ void double_kill()
         proceed_kill();
     }
 }
+
 void stealth_killstreak()
 {
-    print("\nYou chose to continue stealth approach\n", "green");
-    print("\nYou are now behind a group of space pirates, and spot a knife on the floor.", "magenta");
-    print("Do you:");
-    print("1) Stab the closest to you in the leg");
-    print("2) Slit throat");
-    print("3) Stab him in the temple");
+    StoryItem* stealthKillstreakItem = new StoryItem();
 
-    int choice = int_option(3);
+    print("\nYou chose to continue stealth approach\n", "green");
+    stealthKillstreakItem->preText = "\nYou are now behind a group of space pirates, and spot a knife on the floor.";
+    stealthKillstreakItem->preTextColour = "magenta";
+
+    //added knife to inventory
+
+    db_sD.add_to_inventory("Knife");
+
+    if (db_sD.do_i_have("Knife")) {
+        print("You now have an Knife");
+    } else {
+        print("You do not have an Knife");
+    }
+
+    stealthKillstreakItem->prompt = "Do you:";
+    stealthKillstreakItem->options = {
+        "Stab the closest to you in the leg",
+        "Slit throat",
+        "Stab him in the temple"
+    };
+
+    int choice = stealthKillstreakItem->run();
 
     if (choice == 1) {
         print("When you stab him in the leg, he screams, the other crew members turn around and shoot you", "red");
@@ -176,13 +246,18 @@ void stealth_killstreak()
 
 void take_hostage()
 {
-    print("\nYou grab a pirate in choke hold\n", "green");
-    print("\nYou tell them to lead you to whoever is in charge.They lead you to their captain  ", "magenta");
-    print("Do you:");
-    print("1) Ask the captain to free your crew so that you can go on your way");
-    print("2) Tell him to release your crew and to get out of the space station");
+    StoryItem* takeHostageItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou grab a pirate in choke hold\n", "green");
+    takeHostageItem->preText = "\nYou tell them to lead you to whoever is in charge.They lead you to their captain\n";
+    takeHostageItem->preTextColour = "magenta";
+    takeHostageItem->prompt = "Do you:";
+    takeHostageItem->options = {
+        "Ask the captain to free your crew so that you can go on your way",
+        "Tell him to release your crew and to get out of the space station"
+    };
+
+    int choice = takeHostageItem->run();
 
     if (choice == 1) {
         print("He says you're not getting out alive and pushes a self-destruct button", "red");
@@ -194,34 +269,51 @@ void take_hostage()
 
 void crew_member_search_with_guns()
 {
-    print("\nNow that you have supplies you go search for your crew\n", "green");
-    print("\nAs you are lurking around your space station you spot a group of space pirates", "magenta");
-    print("Do you:");
-    print("1) Shoot with grenade launcher");
-    print("2) Sneak behind them and take a hostage");
-    print("3) Continue stealth approach");
+    //will show only if you have the armour and the grenade launcher
 
-    int choice = int_option(3);
+    if (db_sD.do_i_have("Armour vest"), db_sD.do_i_have("Grenade launcher"))
 
-    if (choice == 1) {
-        print("When you shoot you don't take cover and fly back from the impact wave causing you to break your spine and die in pain");
-    }
-    if (choice == 2) {
-        take_hostage();
-    }
-    if (choice == 3) {
-        stealth_killstreak();
+    {
+        StoryItem* crewMemberSearchWithGunsItem = new StoryItem();
+
+        print("\nNow that you have supplies you go search for your crew\n", "green");
+        crewMemberSearchWithGunsItem->preText = "\nAs you are lurking around your space station you spot a group of space pirates";
+        crewMemberSearchWithGunsItem->preTextColour = "magenta";
+        crewMemberSearchWithGunsItem->prompt = "Do you:";
+        crewMemberSearchWithGunsItem->options = {
+            "Shoot with grenade launcher",
+            "Sneak behind them and take a hostage",
+            "Continue stealth approach"
+        };
+
+        int choice = crewMemberSearchWithGunsItem->run();
+
+        if (choice == 1) {
+            print("When you shoot you don't take cover and fly back from the impact wave causing you to break your spine and die in pain");
+        }
+        if (choice == 2) {
+            take_hostage();
+        }
+        if (choice == 3) {
+            stealth_killstreak();
+        }
     }
 }
+
 void badass_for_a_moment()
 {
-    print("\nYou snap the pirates neck and drag the body out of the way\n", "green");
-    print("\nWhile dragging the body his com activates. There was no response and after a short while you are surrounded by 20-30 pirates ", "magenta");
-    print("Do you");
-    print("1) Attempt mass murder.");
-    print("2) Try and be friendly");
+    StoryItem* badassForAmomentItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou snap the pirates neck and drag the body out of the way\n", "green");
+    badassForAmomentItem->preText = "\nWhile dragging the body his com activates. There was no response and after a short while you are surrounded by 20-30 pirates ";
+    badassForAmomentItem->preTextColour = "magenta";
+    badassForAmomentItem->prompt = "Do you";
+    badassForAmomentItem->options = {
+        "Attempt mass murder.",
+        "Try and be friendly"
+    };
+
+    int choice = badassForAmomentItem->run();
 
     if (choice == 1) {
         print("You have no chance and you are killed in less than a second.", "red");
@@ -230,16 +322,22 @@ void badass_for_a_moment()
         print("You say HI and are welcomed by a flock of bullets.", "red");
     }
 }
+
 void crew_member_search()
 {
-    print("\nYou take a lift to the lower deck and see that there are members of your crew locked into sleeping chambers\n", "green");
-    print("\nThe lift is being called up.", "magenta");
-    print("Do you:");
-    print("1) Get in the lift hoping to surprise and kill whoever is trying to get in the lift");
-    print("2) Attempt opening the chambers");
-    print("3) Surrender");
+    StoryItem* crewMemberSearchItem = new StoryItem();
 
-    int choice = int_option(3);
+    print("\nYou take a lift to the lower deck and see that there are members of your crew locked into sleeping chambers\n", "green");
+    crewMemberSearchItem->preText = "\nThe lift is being called up.";
+    crewMemberSearchItem->preTextColour = "magenta";
+    crewMemberSearchItem->prompt = "Do you:";
+    crewMemberSearchItem->options = {
+        "Get in the lift hoping to surprise and kill whoever is trying to get in the lift",
+        "Attempt opening the chambers",
+        "Surrender"
+    };
+
+    int choice = crewMemberSearchItem->run();
 
     if (choice == 1) {
         badass_for_a_moment();
@@ -251,15 +349,42 @@ void crew_member_search()
         print("No questions asked. You get shot multiple times in the head.", "red");
     }
 }
+
 void go_inside()
 {
-    print("\nYou go inside the storage unit.\n", "green");
-    print("\nYou see an armour vest and a mini grenade launcher\n", "magenta");
-    print("Do you:");
-    print("1) Look for your crew members");
-    print("2) Find the other pirate crew members and eliminate them");
+    StoryItem* goInsideItem = new StoryItem();
 
-    int choice = int_option(2);
+    print("\nYou go inside the storage unit.\n", "green");
+    goInsideItem->preText = "\nYou see an armour vest and a mini grenade launcher\n";
+    goInsideItem->preTextColour = "magenta";
+
+    //added armour to inventory
+
+    db_sD.add_to_inventory("Armour vest");
+
+    if (db_sD.do_i_have("Armour vest")) {
+        print("You now have an Armour vest");
+    } else {
+        print("You do not have an Armour vest");
+    }
+
+    //added grenade launcher to inventory
+
+    db_sD.add_to_inventory("Grenade launcher");
+
+    if (db_sD.do_i_have("Grenade launcher")) {
+        print("You now have an Grenade launcher");
+    } else {
+        print("You do not have an Grenade launcher");
+    }
+
+    goInsideItem->prompt = "\nDo you:";
+    goInsideItem->options = {
+        "Look for your crew members",
+        "Find the other pirate crew members and eliminate them"
+    };
+
+    int choice = goInsideItem->run();
 
     if (choice == 1) {
         crew_member_search_with_guns();
@@ -271,14 +396,19 @@ void go_inside()
 
 void hide_n_follow()
 {
-    print("\nYou followed the pirate silently, while keeping your distance.\n", "green");
-    print("\nEventually you got to one of the storage units of your station.\n", "magenta");
-    print("Do you:");
-    print("1) Go inside");
-    print("2) Keep going to find the other pirate crew members");
-    print("3) Look for your crew members");
+    StoryItem* hideNfollowItem = new StoryItem();
 
-    int choice = int_option(3);
+    print("\nYou followed the pirate silently, while keeping your distance.\n", "green");
+    hideNfollowItem->preText = "\nEventually you got to one of the storage units of your station.\n";
+    hideNfollowItem->preTextColour = "magenta";
+    hideNfollowItem->prompt = "Do you:";
+    hideNfollowItem->options = {
+        "Go inside",
+        "Keep going to find the other pirate crew members",
+        "Look for your crew members"
+    };
+
+    int choice = hideNfollowItem->run();
 
     if (choice == 1) {
         go_inside();
@@ -291,24 +421,98 @@ void hide_n_follow()
     }
 }
 
-void start_story_D()
+void lazer_tag()
 {
-    print("What do you do? ");
-    print("1) Hide");
-    print("2) Hide and follow ");
-    print("3) Attempt stealth kill");
-    //print("4) Shoot with lazer gun");
+    //additional option (only shows if user has lazer gun and chooses option 4 in previous question)
 
-    int choice = int_option(3);
+    StoryItem* lazerTagItem = new StoryItem();
+
+    lazerTagItem->preText = "\nYou shoot the pirate in the head. You started roaming around your station and reach a storage unit\n";
+    lazerTagItem->preTextColour = "green";
+    lazerTagItem->prompt = "Do you:";
+    lazerTagItem->options = {
+        "Go inside",
+        "Keep going to find the other pirate crew members",
+        "Look for your crew members"
+    };
+    int choice = lazerTagItem->run();
 
     if (choice == 1) {
-        print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+        go_inside();
     }
     if (choice == 2) {
-        hide_n_follow();
+        print("You end up at the food court and for a moment you stare at the other pirates and you get casually shot in the head", "red");
     }
     if (choice == 3) {
-        print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
-        print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
+        crew_member_search();
+    }
+}
+
+void start_story_D()
+{
+    //check if Lazer gun is in inventory
+
+    if (db_sD.do_i_have("Lazer gun"))
+
+    {
+        //only shows if player has found lazer gun
+        //create an Item
+
+        StoryItem* storyLineStealthItem = new StoryItem();
+
+        storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
+        storyLineStealthItem->preTextColour = "green";
+        storyLineStealthItem->prompt = "What do you do? ";
+        storyLineStealthItem->options = {
+            "Hide",
+            "Hide and follow ",
+            "Attempt stealth kill",
+            "Shoot with Lazer gun"
+        };
+
+        int choice = storyLineStealthItem->run();
+
+        //different choices
+
+        if (choice == 1) {
+            print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+        }
+        if (choice == 2) {
+            hide_n_follow();
+        }
+        if (choice == 3) {
+            print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
+            print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
+        }
+        if (choice == 4) {
+            lazer_tag();
+        }
+    } else {
+
+        //only shows if player hasn't found lazer gun
+
+        StoryItem* storyLineStealthItem = new StoryItem();
+
+        storyLineStealthItem->preText = "\nYou managed to enter the space station through the garbage disposal unit. You heard a pirate walk by.\n";
+        storyLineStealthItem->preTextColour = "green";
+        storyLineStealthItem->prompt = "What do you do? ";
+        storyLineStealthItem->options = {
+            "Hide",
+            "Hide and follow ",
+            "Attempt stealth kill"
+        };
+
+        int choice = storyLineStealthItem->run();
+
+        if (choice == 1) {
+            print("\nYou stayed hidden for a day but when you fell asleep a crew member found you and killed in the spot ", "red");
+        }
+        if (choice == 2) {
+            hide_n_follow();
+        }
+        if (choice == 3) {
+            print("\nYou snuck behind the crew member and tried to choke him, but you were too weak from starvation and he got out of your grip.", "red");
+            print("He alerted the rest of the pirates and you were gunned down like a dog ", "red");
+        }
     }
 }

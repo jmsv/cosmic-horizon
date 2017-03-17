@@ -2,8 +2,6 @@
 
 To install all dependencies (on ubuntu), run `sudo ./get_dependencies.sh` from the root directory of this repository
 
-1. SQLite: `sudo apt-get install sqlite3 libsqlite3-dev`
-
 ## Helpful git stuff
 
 In Codio, before running any git commands, type `cd cosmic-horizon/` to change directory to the repository directory, otherwise you'll get a '`fatal: Not a git repository`' message.
@@ -24,3 +22,20 @@ To add your changes to the GitHub repo, use the above `add`, `commit` and `push`
 - **cyan**: titles
 - **magenta**: neutral story text
 - **blue**: ask for user input
+
+## Database methods
+
+```c++
+Database db = Database();
+
+// How to add item to inventory:
+db.add_to_inventory("Potato");
+
+// How to check if inventory contains something:
+if (db.do_i_have("Potato")) {
+    print("You have a Potato.");
+} else {
+    print("You do not have a Potato.");
+}
+// In this case, 'You have a Potato.' is printed.
+```

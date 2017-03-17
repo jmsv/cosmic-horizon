@@ -10,24 +10,17 @@ using namespace std;
 
 int main()
 {
+    // Print ASCII title
     print("\n" + get_ascii_title(), "cyan");
 
+    // Get user to input their name
     print("Name: ", "", false);
     string name = "";
     name = get_text(true);
     print("Hello, " + name + "!");
 
-    create_user_database(name);
-
-    // How to add item to inventory:
-    add_to_inventory("potato");
-
-    // How to check if inventory contains something:
-    if (do_i_have("avocado")) {
-        print("you have an avocado  :D");
-    } else {
-        print("you do not have an avocado  :'(");
-    }
+    Database db = Database();
+    db.create_user_database(name);
 
     print("\nDo you want to play Cosmic Horizon? ");
     bool choice;

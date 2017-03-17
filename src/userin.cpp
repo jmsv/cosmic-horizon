@@ -57,7 +57,7 @@ bool yes_or_no()
     string answer = "";
     bool valid_in = false;
     while (!valid_in) {
-        cin >> answer;
+        getline(cin, answer);
         if (answer == "y" || answer == "yes" || answer == "Y" || answer == "Yes") {
             valid_in = true;
             return true;
@@ -72,14 +72,16 @@ bool yes_or_no()
 
 int int_option(int max_digit)
 {
+    string prompt = "Enter a value between 1 and " + to_string(max_digit) + ": ";
+    print(prompt, "blue", false);
+
     if (cin.peek() == '\n')
         cin.ignore();
+
     bool valid_in = false;
     string stringIn = "-1";
     int answer;
-    string prompt = "Enter a value between 1 and " + to_string(max_digit) + ": ";
     while (!valid_in) {
-        print(prompt, "blue", false);
         getline(cin, stringIn);
         if (stringIn.length() == 1) {
             answer = int_to_string(stringIn);
@@ -88,6 +90,7 @@ int int_option(int max_digit)
             valid_in = true;
         } else {
             print("Invalid option. Try again...", "red");
+            print(prompt, "blue", false);
         }
     }
     return answer;
