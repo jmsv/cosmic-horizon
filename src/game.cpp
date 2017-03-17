@@ -10,8 +10,10 @@ using namespace std;
 
 int main()
 {
+    // Print ASCII title
     print("\n" + get_ascii_title(), "cyan");
 
+    // Get user to input their name
     print("Name: ", "", false);
     string name = "";
     name = get_text(true);
