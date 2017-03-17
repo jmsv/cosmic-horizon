@@ -13,8 +13,8 @@ void patrol_unit();
 void drone();
 void discovering_ship();
 void kidnap();
-
-void start_L()
+void newstory();
+void newstory2();
 {
 	StoryItem* start_LItem = new StoryItem();
     //Start 1.0
